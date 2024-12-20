@@ -79,8 +79,7 @@
 }
 
 .nav-button {
-  min-width: 200px;
-  max-width: 200px;
+  width: 200px;
   padding: 0px 0px;
   font-size: 1rem;
   padding: 10px 0;
@@ -115,6 +114,10 @@
     .navbar .menu-btn {
         display: block;
         /* Show the menu button */
+    }
+
+    .nav-button {
+      width: 80px;
     }
 
     .menu-options {
