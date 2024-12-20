@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Essays</title>
+    <style>
+        :root {
+            --bg-color: #0e0e0e;
+            /* Black almost */
+            --container-bg-color: #202020;
+            /* Dark Gray */
+            --font-color: #e0e0e0;
+            /* Light Gray */
+            --font-color2: #f6f6f6;
+            /* Light Gray */
+            --button-bg-color: #f1c40f;
+            /* Gold */
+            --button-hover-bg-color: #f39c12;
+            /* Darker Gold on hover */
+            --button-text-color: #ffffff;
+            /* White text */
+            --clear-color: hsla(0, 0%, 100%, 0.0);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container {
+            max-width: 38rem;
+            margin: 0 auto;
+            background-color: var(--container-bg-color);
+            /* Dark gray background */
+            /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+            /*margin-bottom: 4rem;*/
+            margin-bottom: 8px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 1rem 2rem;
+            /* Uniform padding inside the container */
+        }
+
+        .rounded-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            margin: 0;
+            padding-top: 0.4rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--font-color);
+            /* Light gray text */
+            /*margin-bottom: 1.5rem;*/
+            line-height: 1.4;
+            /*white-space: pre-line; /* Preserves line breaks */
+        }
+
+        .rounded-container p {
+            font-family: 'Inter', sans-serif;
+            /*font-size: 14px;*/
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            /* Light gray text */
+        }
+
+        @media (max-width: 420px) and (orientation:portrait) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        @media (max-height: 420px) and (orientation:landscape) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+                text-align: left;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        .read-more-button {
+            width: 100%;
+            padding: 0.4rem;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 1rem;
+            background-color: #0D47A1; /* var(--clear-color); */
+            /* Gold */
+            color: var(--button-text-color);
+            /* White text */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 0px solid #e0e0e0;
+            /* Light gray border */
+            border-radius: 42px;
+            cursor: pointer;
+            /*text-transform: uppercase;*/
+            font-weight: 200;
+            transition: background-color 0.3s;
+        }
+
+        .read-more-button:hover {
+            background-color: var(--button-hover-bg-color);
+            /* Darker Gold on hover */
+        }
+
+        @media (pointer: coarse) {
+            .read-more-button:hover {
+                background-color: transparent;
+                /* Reset hover */
+            }
+
+            .read-more-button:active {
+                background-color: #0056b3;
+                /* Different effect when tapped on touch devices */
+            }
+        }
+
+        #intro-container {
+            width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+        }
+
+        #intro-container p {
+            max-width: 42rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            margin: 1rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            margin-block-end: 3rem;
+            /* Light gray text */
+        }
+        #intro-container h1 {
+            font-size: 3.5rem;
+            margin: 2rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 42rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <a href="/">Debut Ave</a>
+            </div>
+            <div class="right">
+                <a href="/essays/">Essays</a>
+                <a href="/projects/">Projects</a>
+                <a href="/about/">About</a>
+            </div>
+            <!-- Menu Button (only visible on small screens) -->
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        </div>
+    </nav>
+
+    <!-- Vertical menu options below the navbar (only visible on small screens) -->
+    <div class="menu-options">
+        <a href="/essays/">Essays</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+    </div>
+    <div id="intro-container">
+        <h1>Essays</h1>
+    </div>
+    <div id="content-container"></div>
+
+    <script>
+        function toggleMenu() {
+            const menuOptions = document.querySelector('.menu-options');
+            menuOptions.classList.toggle('show');
+        }
+        const metasections = [[
+            {
+                title: "Swiftly Through The Programing Languages",
+                textLines: "",
+                paragraphs: [
+                    "This series of articles delves into the concept of modern programming languages, using Swift as a case study to explore how they address long-standing issues in software development while balancing legacy compatibility. It examines the shift from mutable, object-oriented paradigms to the immutability and simplicity emphasized by functional programming.",
+                    "Drawing parallels to historical transformations like Turkey’s alphabet reform, it discusses the trade-offs between breaking with the past and ensuring gradual transitions. Swift’s design choices, blending legacy support with modern principles, highlight the ongoing tension between innovation and practicality in building robust, future-proof systems."
+                ]
+            },
+            {
+                title: "Tabula Rasa",
+                ref: "/tabula-rasa/",
+                textLines: "Clean plate\nTabula rasa for my children\nLet's clean up\nBreak the chain of the mistakes of the fathers\nIt is time",
+                paragraphs: [
+                    "Swift is what you'd call a 'modern' programming language. It was born in 2014, and I don't even know what generation it belongs to, but it is one of those who was born right into the world of iPads and iPhones--literally.",
+                    "What does it mean for a programming language to be modern, this is the important question. The answer basically is that, it doesn't repeat the 'fuck up of the fathers'."
+                ]
+            },
+            {
+                title: "I Have Seen It All",
+                ref: "/i-have-seen-it-all/",
+                textLines: "I've seen it all\nI have seen the trees\nI have seen the willow leaves\nDancing in the breeze",
+                paragraphs: [
+                    "In the previous chapter, I presented Swift to you as a 'Tabula Rasa' (Clean Slate). Whether or not 'Tabula Rasa' truly represents the state of a human mind at the beginning of life, it definitely isn't the case for Swift.",
+                    "What do I mean by that? A programming language without an implementation is just an idea. When you think of an idea, you have the opportunity to start from the ground up (as much as you can)."
+                ]
+            },
+            {
+                title: "Ocenia (I)",
+                ref: "/ocenia-i/",
+                textLines: "You show me continents\nI see islands\nYou count the centuries\nI blink my eyes\nHawks and sparrows race in my waters\nStingrays are floating\nAcross the sky\nLittle ones, my sons and my daughters",
+                paragraphs: [
+                    "There are two places on Earth that, when I look back at history, feel like there was something mysterious going on with them. They were like a glitch in the matrix because it is ridiculous how much they’ve achieved in a relatively short amount of time, considering both the time period they did that and the fact that the things they invented were actually breakthroughs rather than incremental steps."
+                ]
+            },
+            {
+                title: "Isobel",
+                ref: "/isobel/",
+                textLines: "My name Isobel\nMarried to myself\nMy love Isobel\nLiving by herself",
+                paragraphs: [
+                    "There are two basic capabilities that computers have: 1. being able to represent and store information, 2. being able to perform operations on information.",
+                    "In fact, if you've spent some time on LISP's eval/apply loop or the Von Neumann architecture, you already know that the distinction between the two is not that clear, if there is any distinction at all. This is because the program itself is also represented and stored as data, and when needed, it is fetched from memory to get executed."
+                ]
+            }
+        ],
+        
+        [
+            
+        ]
+        ];
+
+        const contentContainer = document.getElementById("content-container");
+        metasections.forEach((sections) => {
+        sections.forEach((section, index) => {
+            const container = document.createElement("div");
+            container.classList.add("rounded-container");
+            if (index == 0) {
+                container.style.borderTopLeftRadius = "1rem";
+                container.style.borderTopRightRadius = "1rem";
+                container.style.backgroundColor = "#2E8B57";
+            }
+            else if (index == sections.length - 1) {
+                container.style.borderBottomLeftRadius = "1rem";
+                container.style.borderBottomRightRadius = "1rem";
+                container.style.marginBlockEnd = "5rem"
+            }
+        
+            // Add title
+            const title = document.createElement("h1");
+            title.textContent = section.title;
+            container.appendChild(title);
+
+            // Add text lines
+            const textLines = document.createElement("h2");
+            textLines.innerHTML = section.textLines.split("\n").join("<br>");
+            container.appendChild(textLines);
+
+            // Add paragraphs
+            section.paragraphs.forEach(paragraph => {
+                const paragraphElement = document.createElement("p");
+                paragraphElement.textContent = paragraph;
+                container.appendChild(paragraphElement);
+            });
+
+            // Add "Read More" button
+            if (index != 0) {
+            const button = document.createElement("button");
+            button.classList.add("read-more-button");
+            button.textContent = "Read more";
+            button.addEventListener("click", function() {
+                window.location.href = section.ref;  // This opens the tabula-rasa.html page
+            });
+            container.appendChild(button);
+            }
+            // Append section container to the main content container
+            contentContainer.appendChild(container);
+        });
+    });
+    </script>
+</body>
+<footer>
+    <p>&#169; Mert Arıcan 2024</p>
+</footer>
+</html>

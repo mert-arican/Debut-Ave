@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Bio</title>
+    <style>
+        :root {
+            --bg-color: #0e0e0e;
+            /* Black almost */
+            --container-bg-color: #202020;
+            /* Dark Gray */
+            --font-color: #e0e0e0;
+            /* Light Gray */
+            --font-color2: #f6f6f6;
+            /* Light Gray */
+            --button-bg-color: #f1c40f;
+            /* Gold */
+            --button-hover-bg-color: #f39c12;
+            /* Darker Gold on hover */
+            --button-text-color: #ffffff;
+            /* White text */
+            --clear-color: hsla(0, 0%, 100%, 0.0);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container {
+            max-width: 38rem;
+            margin: 0 auto;
+            background-color: var(--container-bg-color);
+            /* Dark gray background */
+            /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+            /*margin-bottom: 4rem;*/
+            margin-bottom: 8px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 1rem 2rem;
+            /* Uniform padding inside the container */
+        }
+
+        .rounded-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            margin: 0;
+            padding-top: 0.4rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--font-color);
+            /* Light gray text */
+            /*margin-bottom: 1.5rem;*/
+            line-height: 1.4;
+            /*white-space: pre-line; /* Preserves line breaks */
+        }
+
+        .rounded-container p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            /* Light gray text */
+        }
+
+        @media (max-width: 420px) and (orientation:portrait) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        @media (max-height: 420px) and (orientation:landscape) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+                text-align: left;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        .read-more-button {
+            width: 100%;
+            padding: 0.4rem;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 1rem;
+            background-color: #0D47A1; /* var(--clear-color); */
+            /* Gold */
+            color: var(--button-text-color);
+            /* White text */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 0px solid #e0e0e0;
+            /* Light gray border */
+            border-radius: 42px;
+            cursor: pointer;
+            /*text-transform: uppercase;*/
+            font-weight: 200;
+            transition: background-color 0.3s;
+        }
+
+        .read-more-button:hover {
+            background-color: var(--button-hover-bg-color);
+            /* Darker Gold on hover */
+        }
+
+        @media (pointer: coarse) {
+            .read-more-button:hover {
+                background-color: transparent;
+                /* Reset hover */
+            }
+
+            .read-more-button:active {
+                background-color: #0056b3;
+                /* Different effect when tapped on touch devices */
+            }
+        }
+
+        #intro-container {
+            width: 100%;
+            margin-bottom: 5rem;
+            background-color: transparent;
+        }
+
+        #intro-container p {
+            max-width: 42rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            margin: 1rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            margin-block-end: 3rem;
+            /* Light gray text */
+        }
+        #intro-container h1 {
+            font-size: 3.5rem;
+            margin: 2rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 42rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <a href="/">Debut Ave</a>
+            </div>
+            <div class="right">
+                <a href="/essays/">Essays</a>
+                <a href="/projects/">Projects</a>
+                <a href="/about/">About</a>
+            </div>
+            <!-- Menu Button (only visible on small screens) -->
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        </div>
+    </nav>
+
+    <!-- Vertical menu options below the navbar (only visible on small screens) -->
+    <div class="menu-options">
+        <a href="/essays/">Essays</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+    </div>
+    <div id="intro-container">
+        <h1>Mert Arıcan</h1>
+
+        <p>
+            Near the end of the summer 2017, I found myself puzzled by computers ability to perform human activities. I wanted to learn more about computers to resolve the mystery, and I was lucky that I came across to an amazing course on Youtube that changed my life, namely MIT's 6.00 Introduction to Computer Science and Programming.
+<br><br>
+I was blown away by the content and programming, and I really liked the enthusiasm of instructors (also their jokes) and decided to learn more about it. I was always interested in Apple products and I found and completed a course that made me a mobile developer, Stanford's CS193P Developing Applications for iOS.
+<br><br>
+During the course I realized that I was still missing fundamental stuff, so I decided to find courses to follow and learn about the fundamentals of computer science, like algorithms, data structures and programming paradigms etc.
+<br><br>
+During the last 5 years, I have completed numerous problem sets and courses from top level universities like MIT, Stanford and Harvard not just learn about fundamentals but also to learn about popular fields like data science and artificial intelligence.
+<br><br>
+I've done my best to find and follow all the courses that computer science curriculum contains from these amazing universities. I also built dozens of personal projects both for practice and marketing purposes.
+<br><br>
+Swift is the language that I'm most comfortable working with, because I really like visualizing and showing my ideas to others by building a mobile app. Also I have experience in using C and Python.
+<br><br>
+Besides that, I'm really interested in the notion of programming languages and compiler design, and I continue to learn about these subjects.
+<br><br>
+You can visit my GitHub profile to see all the work I mentioned above: <a href="https://github.com/mert-arican" target="_blank" rel="noopener noreferrer" style = "color: #f1c40f;">github.com/mert-arican</a>
+<br><br>
+<b>I feel forever grateful for all the people and organizations that share high quality education for free.</b>
+        </p>
+    </div>
+    <div id="content-container"></div>
+
+    <script>
+        function toggleMenu() {
+            const menuOptions = document.querySelector('.menu-options');
+            menuOptions.classList.toggle('show');
+        }
+    </script>
+</body>
+<footer>
+    <p>&#169; Mert Arıcan 2024</p>
+</footer>
+</html>

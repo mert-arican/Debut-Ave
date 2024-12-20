@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Projects</title>
+    <style>
+        :root {
+            --bg-color: #0e0e0e;
+            /* Black almost */
+            --container-bg-color: #202020;
+            /* Dark Gray */
+            --font-color: #e0e0e0;
+            /* Light Gray */
+            --font-color2: #f6f6f6;
+            /* Light Gray */
+            --button-bg-color: #f1c40f;
+            /* Gold */
+            --button-hover-bg-color: #f39c12;
+            /* Darker Gold on hover */
+            --button-text-color: #ffffff;
+            /* White text */
+            --clear-color: hsla(0, 0%, 100%, 0.0);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container {
+            max-width: 38rem;
+            margin: 0 auto;
+            background-color: var(--container-bg-color);
+            /* Dark gray background */
+            /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+            /*margin-bottom: 4rem;*/
+            margin-bottom: 8px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 1rem 2rem;
+            /* Uniform padding inside the container */
+        }
+
+        .rounded-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            margin: 0;
+            padding-top: 0.4rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--font-color);
+            /* Light gray text */
+            /*margin-bottom: 1.5rem;*/
+            line-height: 1.4;
+            /*white-space: pre-line; /* Preserves line breaks */
+        }
+
+        .rounded-container p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            /* Light gray text */
+        }
+
+        .rounded-container img {
+            margin: 0 auto;
+        }
+
+        h3 {
+            margin: 0.5rem 0;
+            font-weight: 600;
+            font-size: 14px;
+            /*color: antiquewhite;*/
+        }
+
+        @media (max-width: 420px) and (orientation:portrait) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        @media (max-height: 420px) and (orientation:landscape) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+                text-align: left;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        .read-more-button {
+            width: 100%;
+            padding: 0.4rem;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 1rem;
+            background-color: #0D47A1; /* var(--clear-color); */
+            /* Gold */
+            color: var(--button-text-color);
+            /* White text */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 0px solid #e0e0e0;
+            /* Light gray border */
+            border-radius: 42px;
+            cursor: pointer;
+            /*text-transform: uppercase;*/
+            font-weight: 200;
+            transition: background-color 0.3s;
+        }
+
+        .read-more-button:hover {
+            background-color: var(--button-hover-bg-color);
+            /* Darker Gold on hover */
+        }
+
+        @media (pointer: coarse) {
+            .read-more-button:hover {
+                background-color: transparent;
+                /* Reset hover */
+            }
+
+            .read-more-button:active {
+                background-color: #0056b3;
+                /* Different effect when tapped on touch devices */
+            }
+        }
+
+        #intro-container {
+            width: 100%;
+            margin-bottom: 2rem;
+            background-color: #1a1a1a;
+        }
+
+        #intro-container p {
+            max-width: 42rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            margin: 1rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            margin-block-end: 3rem;
+            /* Light gray text */
+        }
+
+        #intro-container h1 {
+            font-size: 3.5rem;
+            margin: 2rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 42rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <a href="/">Debut Ave</a>
+            </div>
+            <div class="right">
+                <a href="/essays/">Essays</a>
+                <a href="/projects/">Projects</a>
+                <a href="/about/">About</a>
+            </div>
+            <!-- Menu Button (only visible on small screens) -->
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        </div>
+    </nav>
+
+    <!-- Vertical menu options below the navbar (only visible on small screens) -->
+    <div class="menu-options">
+        <a href="/essays/">Essays</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+    </div>
+    
+    <div id="intro-container">
+        <h1>Projects</h1>
+        <p>Here you can see some examples of the software I've been creating for the last seven years.<br>
+            I divide them into two different categories:
+            <br>
+            <br> 1- Projects as Products
+            <br> 2- Not So Toy Projects
+        <br>
+        <br>
+        The first category includes apps created as products.
+        I don't share the source code for these apps, but you can download and use them through the App Store or TestFlight.
+        Since these are the most recent apps I've developed, they best showcase my software development skills.
+            <br>
+            <br>
+            The second category contains apps that I built primarily for educational purposes.
+            The source code for these can be found in the detailed description.
+            While they may not be the best pieces of software I've written,
+            they are included to demonstrate my progress as a software engineer over time.
+            <br>
+            <br>
+            If you want to learn more about a specific project, or see screenshots and recordings, tap 'Learn More'.
+            </p>
+    </div>
+    <div id="content-container"></div>
+
+    <script>
+        function isString(value) {
+  return typeof value === 'string';
+}
+        function toggleMenu() {
+            const menuOptions = document.querySelector('.menu-options');
+            menuOptions.classList.toggle('show');
+        }
+        const metasections = [
+        "Projects as Products",
+        [
+            {
+                language: "Swift - SwiftUI - MVVM - iOS - macOS - Git",
+                title: "Felix Project",
+                textLines: "",
+                images: ["assets/felix-project.png"],
+                paragraphs: [
+                    "Felix project consists of two programs I've written using Swift and SwiftUI. First one is the main app that I built for iOS & iPadOS, called Programming with Felix. Second one is a macOS tool that I built for myself to create the content of the main app, called FelixData. Both projects share a common JSON file, which is manipulated by FelixData, and forms the content of Programming with Felix."
+                ]
+            },
+            {
+                insights: 
+                [`
+                This is the most complex software I've ever written.
+                The app features various views that can display syntax-highlighted code snippets, 
+                compile-time errors and warnings, the flow of control through the code, and the code's output.
+                All these views can be nested within multiple-choice questions, either in the question itself or the options.
+                Additionally, it includes a practice element where users fill in the blanks with the correct options to create valid code.`,
+
+                `There is also another app called FelixData, designed to create and manage the content for the Felix app.
+                 FelixData generates and modifies a JSON file, which serves as the source of content for the Felix app.`
+                ]
+            },
+            {
+                title: "Programming with Felix",
+                textLines: "",
+                ref: "https://sites.google.com/view/programmingwithfelix/home",
+                images: ["assets/felix-1.png", "assets/felix-2.png"],
+                paragraphs: [
+                    "Educational app that provides an interactive user experience to help people learn the fundamentals of programming."
+                ]
+            },
+            {
+                title: "Felix Data",
+                textLines: "",
+                images: ["assets/felix-data.png"],
+                paragraphs: [
+                    "Utility program that I built for myself to create and manipulate the content of Programming with Felix app."
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - SwiftUI - MVVM - iOS - Git",
+                title: "Flowcharts: Visual Compiler",
+                textLines: "",
+                ref: "https://sites.google.com/view/flowcharts-visual-compiler/home",
+                magic: "The way in which you would construct a recursive process is by wishful thinking. You have to believe.",
+                images: ["assets/flowchart-1.png", "assets/flowchart-2.png"],
+                paragraphs: [
+                    "Productivity app that provides a simple interface to create a pseudocode, and then compiles it into its flowchart representation."
+                ]
+            },
+            {
+                insights: 
+                [`
+                This project is, in my opinion, the hardest-to-replicate piece of software I've ever written. 
+                The motivation came from my hate of flowcharts. When I started my education in the CS department, I already knew how to code.
+                Unfortunately, the Introduction to Computer Science course focused on using flowcharts rather than an actual programming
+                language (like ANY FU*KIN REAL LANGUAGE). To make things worse, they used a custom version of flowcharts instead of the standard format, which only added to the confusion.
+                I failed miserably a couple of times.`,
+
+                `I realized that unless I created a program to handle their version of flowcharts, I would never be able to produce one they’d accept.
+                This led to the development of an algorithm with an immense level of recursion.
+                If you wonder why it is so difficult to create a program that draws flowcharts then visit apps detailed description.`
+            ]
+            }
+        ],
+        "Not So Toy Projects",
+        [
+            {
+                language: "Swift - UIKit - MVC - iOS",
+                title: "Rengarenk: Colorful Words",
+                textLines: "",
+                ref: "https://sites.google.com/view/rengarenk-colorful-words/home",
+                images: ["assets/renga1.png", "assets/renga2.png"],
+                paragraphs: [
+                    "Word game that initially built as a final project for CS193P, later got published to the App Store."
+                ]
+            },
+            {
+                insights: 
+                [`
+                This was the first app I published to the App Store and the first app I earned money from.
+                After following the CS193P (2017) course, I decided to create this word game as my final project.
+                While I wouldn’t claim it’s the best-designed word game out there, it proves that I can develop
+                complex apps using UIKit and Swift.`,
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - UIKit - MVC - iOS",
+                title: "Blocks World",
+                textLines: "",
+                ref: "https://sites.google.com/view/blocks-world/home",
+                images: ["assets/blocks1.png", "assets/blocks2.png"],
+                paragraphs: [
+                    "Simple AI program that uses goal trees to answer questions about its own behavior."
+                ]
+            },
+            {
+                insights: [
+                    `
+                    I first saw a demonstration of this app during the MIT 6.034 AI course and thoroughly enjoyed it.
+                    Professor Winston explained the algorithm on the blackboard, and I wondered if I could implement it myself based on what I saw.
+                    I successfully implemented it and named it Blocks World.
+                    Only a month ago, I stumbled upon the Wikipedia page and discovered that its actual name is indeed Blocks World.
+                    `
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - UIKit - MVC - iOS",
+                title: "Equal-Sum-Product Program",
+                textLines: "",
+                ref: "https://sites.google.com/view/esp-problem/home",
+                images: ["assets/esp1.png", "assets/esp2.png"],
+                paragraphs: [
+                    "App that solves and displays the solution of the NP-Hard ESP problem for the input provided by the user."
+                ]
+            },
+            {
+                insights: [
+                    `
+                    An instructor at my university posed a question at the very end of a lecture,
+                    asking us to think about this algorithm: "What is the algorithm for finding n
+                    numbers such that their sum equals their product?"
+                    `,
+                    `I started researching and 
+                    eventually found an academic paper that explained the algorithm. I spent a few days
+                    trying to understand it—it’s still, to this day, the most mathematical paper I’ve
+                    ever read—and successfully implemented the solution as a mobile app.`,
+                    `At the time, I didn’t realize this was an NP-hard problem requiring advanced
+                    dynamic programming techniques. Looking back, this was a breakthrough moment for me:
+                    it was the first time I was able to read, understand, and implement an algorithm
+                    described in an academic paper.`
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - SwiftUI - MVVM - iOS",
+                title: "Simulated Annealing",
+                textLines: "",
+                ref: "https://sites.google.com/view/simulatedannealing/home",
+                images: ["assets/sa1.png", "assets/sa2.png"],
+                paragraphs: [
+                "Simple program that visualizes the simulated annealing method on traveling salesman problem."
+            ]
+            },
+            {
+                insights: [
+                    `
+                    This was the first app I developed using SwiftUI. The whole thing was new to me,
+                    but I wanted to check it out it since I was deeply interested in the iOS platform.
+                    I implemented the Simulated Annealing algorithm based on the description from its Wikipedia page.
+                    `
+                ],
+            }
+        ],
+        [
+            {
+                language: "Swift - SpriteKit - iOS",
+                title: "Pt2",
+                textLines: "",
+                ref: "https://sites.google.com/view/pt2-spritekit-experiment/home",
+                images: ["assets/pt1.png"],
+                paragraphs: [
+                    "Simple platformer game that I built using SpriteKit."
+            ]
+            },
+            {
+                insights: [
+                    "I tried to implement a simple 2D platformer game. It didn’t go as planned (thanks to SpriteKit and its quirks), but I learned a lot about how simple game engines work."
+                ],
+            }
+          ],
+        [
+            {
+                language: "Swift - UIKit - MVC - iOS",
+                title: "Color Lines",
+                textLines: "",
+                ref: "https://sites.google.com/view/color-lines-replica/home",
+                images: ["assets/color-lines-1.png", "assets/color-lines-2.png"],
+                paragraphs: [
+                    "Replicate of the puzzle video game from 1992 named Color Lines."
+            ]
+            },
+            {
+                insights: [
+                    `
+                    This is the first app I developed entirely on my own, starting from a blank page.
+                    I used to play this game as a child, and it felt amazing to replicate a game that I loved.
+                    The app uses the A* search algorithm to move the balls on the board, which I learned in the MIT 6.034 course,
+                    specifically tailored for this game.
+                    `
+                ]
+            }
+        ],
+        [
+            {
+                language: "C - Desktop",
+                title: "CTetris",
+                textLines: "",
+                ref: "https://sites.google.com/view/c-tetris/home",
+                images: ["assets/ctetris.png"],
+                paragraphs: [
+                    "Tetris written in C as a console game using Unicode characters."
+            ]
+            },
+            {
+                insights: [
+                    `
+                    At the time, I was already comfortable using Swift to create simple software, but I wanted to challenge
+                    myself to see if I could develop quality software using this old language called C. It took a lot less
+                    time and effort than I expected—seems like the same principles I used in Swift also apply in C.
+                    By the way, this was the final project for my university's introductory course, in which I scored 110/100 (extra 10 points, you've heard it right).
+                    `
+                ]
+            }
+        ],
+        [
+            {
+                language: "C - Desktop",
+                title: "File Based Database Implementation",
+                textLines: "",
+                ref: "https://sites.google.com/view/file-based-database-in-c/home",
+                images: ["assets/cfile.png"],
+                paragraphs: [
+                    "File-based database implementation for holding student, instructor, course, registration records using 'stdio' functions in C."
+            ]
+            },
+            {
+                insights: [
+                    `
+                    This was the final project for my Structured Programming course. I was able to implement much more functionality than expected in
+                    a relatively small amount of code, because I first tried to immplement some of Swift's advanced features, like enums and optionals (to some degree).
+                    This project helped me get really comfortable using C. If you look at the code, you can see that I didn’t know much about test modules
+                    at the time.
+                    `
+                ]
+            }
+        ]
+        
+
+
+        
+
+        
+        ];
+
+        const contentContainer = document.getElementById("content-container");
+        metasections.forEach((sections) => {
+            console.log(sections, isString(sections))
+            if (isString(sections)) {
+                const tit = document.createElement("h1");
+                tit.textContent = sections;
+                tit.style.marginTop = "0";
+                tit.style.marginBottom = "4rem";
+                tit.style.paddingLeft = "1rem";
+                contentContainer.appendChild(tit);
+            }
+            else {
+        sections.forEach((section, index) => {
+            const container = document.createElement("div");
+            container.classList.add("rounded-container");
+            if (index == 0) {
+                container.style.borderTopLeftRadius = "1rem";
+                container.style.borderTopRightRadius = "1rem";
+                container.style.backgroundColor = "#2E8B57";
+            }
+            if (index == sections.length - 1) {
+                container.style.borderBottomLeftRadius = "1rem";
+                container.style.borderBottomRightRadius = "1rem";
+                container.style.marginBlockEnd = "5rem"
+            }
+
+            if (section.insights != null) {
+                const tit = document.createElement("h1");
+                tit.textContent = "Developer's Insight";
+                container.appendChild(tit);
+                contentContainer.appendChild(container);
+
+                section.insights.forEach(par => {
+                    console.log(par);
+                    const paragraphElement = document.createElement("p");
+                    paragraphElement.textContent = par;
+                    container.appendChild(paragraphElement);
+                });
+                container.style.backgroundColor = "#4A1228";
+                contentContainer.appendChild(container);
+                return;
+            }
+/*
+            if (section.specs != null) {
+                const tit = document.createElement("h3");
+                tit.textContent = "Technical Specs";
+                container.appendChild(tit);
+                contentContainer.appendChild(container);
+                const paragraphElement = document.createElement("p");
+                section.specs.forEach((spec, index) => {
+                    paragraphElement.innerHTML += "<b>" + spec[0] + "</b>" + ": " + spec[1];
+                    paragraphElement.innerHTML += "</br>";
+                })
+                // container.style.backgroundColor = "#2E8B57";
+                container.appendChild(paragraphElement);
+                contentContainer.appendChild(container);
+                return;
+            }
+        */
+            // Add title
+
+            if (section.language != null) {
+                // Create the text element for "Swift"
+                const textElement = document.createElement("h3");
+                textElement.textContent = section.language;
+                container.appendChild(textElement);
+            }
+
+            const title = document.createElement("h1");
+            title.textContent = section.title;
+            title.style.marginBottom = "2rem";
+            container.appendChild(title);
+
+            // <img src="image-path.jpg" alt="Description of the image" style="max-width:100%; height:auto;">
+            const co = document.createElement("div");
+            co.style.maxWidth = "40rem";
+            co.style.display = "flex"; // Use flexbox
+            co.style.gap = "10px"; // Add some spacing between images 
+            co.style.marginBottom = "1rem";   
+
+            section.images.forEach((img, index) => {
+                const image = document.createElement("img");
+                console.log(img);
+                image.src = img;
+                image.style.maxWidth = "100%";
+                image.style.minWidth = "42%";
+                image.style.maxHeight = "420px"
+                image.style.marginBottom = "1rem";
+                co.appendChild(image);
+            })
+
+            // Add text lines
+            const textLines = document.createElement("h2");
+            textLines.innerHTML = section.textLines.split("\n").join("<br>");
+            container.appendChild(textLines);
+
+            container.appendChild(co);
+            section.paragraphs.forEach(paragraph => {
+                const paragraphElement = document.createElement("p");
+                paragraphElement.textContent = paragraph;
+                container.appendChild(paragraphElement);
+            });
+
+            if (section.magic != null) {
+                const anchorElement = document.createElement("a");
+                anchorElement.style.display = "inline-block";
+                anchorElement.target = "_blank";
+                anchorElement.href = "https://youtu.be/V_7mmwpgJHU?list=PLE18841CABEA24090&t=2885"; // The link destination
+                anchorElement.textContent = "The way in which you would construct a recursive process is by wishful thinking. You have to believe.";
+                anchorElement.style.marginBottom = "1rem";
+                container.appendChild(anchorElement);
+            }
+
+            // Add "Read More" button
+            const nextIsInsight = (index < (sections.length - 1)) && sections[index+1].insights != null
+            if ((index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) && section.ref != null) {
+                const button = document.createElement("button");
+                button.classList.add("read-more-button");
+                button.textContent = "Learn more";
+                button.addEventListener("click", function() {
+                    // window.location.href = section.ref;  // This opens the tabula-rasa.html page
+                    window.open(section.ref, "_blank");
+                });
+                container.appendChild(button);
+            }
+            // Append section container to the main content container
+            contentContainer.appendChild(container);
+        });
+    }
+    });
+    </script>
+</body>
+<footer>
+    <p>&#169; Mert Arıcan 2024</p>
+</footer>
+</html>

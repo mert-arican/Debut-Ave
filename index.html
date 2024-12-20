@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Projects</title>
+    <style>
+        :root {
+            --bg-color: #0e0e0e;
+            /* Black almost */
+            --container-bg-color: #202020;
+            /* Dark Gray */
+            --font-color: #e0e0e0;
+            /* Light Gray */
+            --font-color2: #f6f6f6;
+            /* Light Gray */
+            --button-bg-color: #f1c40f;
+            /* Gold */
+            --button-hover-bg-color: #f39c12;
+            /* Darker Gold on hover */
+            --button-text-color: #ffffff;
+            /* White text */
+            --clear-color: hsla(0, 0%, 100%, 0.0);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container {
+            max-width: 38rem;
+            margin: 0 auto;
+            background-color: var(--container-bg-color);
+            /* Dark gray background */
+            /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+            /*margin-bottom: 4rem;*/
+            margin-bottom: 8px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 1rem 2rem;
+            /* Uniform padding inside the container */
+        }
+
+        .rounded-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            margin: 0;
+            padding-top: 0.4rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+
+        .rounded-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--font-color);
+            /* Light gray text */
+            /*margin-bottom: 1.5rem;*/
+            line-height: 1.4;
+            /*white-space: pre-line; /* Preserves line breaks */
+        }
+
+        .rounded-container p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            /* Light gray text */
+        }
+
+        .rounded-container img {
+            margin: 0 auto;
+        }
+
+        h3 {
+            margin: 0.5rem 0;
+            font-weight: 600;
+            font-size: 14px;
+            /*color: antiquewhite;*/
+        }
+
+        @media (max-width: 420px) and (orientation:portrait) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        @media (max-height: 420px) and (orientation:landscape) {
+            .rounded-container {
+                padding: 0.5rem 1rem;
+            }
+
+            .rounded-container h2 {
+                display: none;
+                /* Hides the paragraph inside .rounded-container on small screens */
+            }
+
+            .rounded-container p {
+                font-size: 1.0rem;
+                text-align: left;
+            }
+
+            .rounded-container h1 {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        .read-more-button {
+            width: 100%;
+            padding: 0.4rem;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 1rem;
+            background-color: #0D47A1; /* var(--clear-color); */
+            /* Gold */
+            color: var(--button-text-color);
+            /* White text */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 0px solid #e0e0e0;
+            /* Light gray border */
+            border-radius: 42px;
+            cursor: pointer;
+            /*text-transform: uppercase;*/
+            font-weight: 200;
+            transition: background-color 0.3s;
+        }
+
+        .read-more-button:hover {
+            background-color: var(--button-hover-bg-color);
+            /* Darker Gold on hover */
+        }
+
+        @media (pointer: coarse) {
+            .read-more-button:hover {
+                background-color: transparent;
+                /* Reset hover */
+            }
+
+            .read-more-button:active {
+                background-color: #0056b3;
+                /* Different effect when tapped on touch devices */
+            }
+        }
+
+        #intro-container {
+            width: 100%;
+            margin-bottom: 2rem;
+            background-color: #1a1a1a;
+        }
+
+        #intro-container p {
+            max-width: 42rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            margin: 1rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--font-color2);
+            margin-block-end: 3rem;
+            /* Light gray text */
+        }
+
+        #intro-container h1 {
+            font-size: 3.5rem;
+            margin: 2rem auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 42rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <a href="/">Debut Ave</a>
+            </div>
+            <div class="right">
+                <a href="/essays/">Essays</a>
+                <a href="/projects/">Projects</a>
+                <a href="/about/">About</a>
+            </div>
+            <!-- Menu Button (only visible on small screens) -->
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        </div>
+    </nav>
+
+    <!-- Vertical menu options below the navbar (only visible on small screens) -->
+    <div class="menu-options">
+        <a href="/essays/">Essays</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+    </div>
+    
+    <div id="intro-container">
+        <h1>Debut Ave</h1>
+        <p>
+            Welcome to my personal avenue on the internet, where my ideas and projects make debut.
+            I use this site to showcase my projects and share my thoughts on programming through (if possible) creative essays.
+
+            <br><br>
+
+            Since it is still in its early stages, there's much more to come.
+            However, if you're interested in my thoughts on programming languages and paradigms,
+            I've shared a series of essays where I explore these topics using the Swift language. (Which also currently in progress.)
+            <br><br>
+            You can also check out my personal projects, and feel free to reach out to share your ideas and comments.  
+        </p>
+    </div>
+    <div id="content-container"></div>
+
+    <script>
+        function isString(value) {
+  return typeof value === 'string';
+}
+        function toggleMenu() {
+            const menuOptions = document.querySelector('.menu-options');
+            menuOptions.classList.toggle('show');
+        }
+        const metasections = [
+        "Featured Reading",
+       ,
+        [
+            {
+                language: "Series of Essays",
+                title: "Swiftly Through The Programing Languages",
+                textLines: "",
+                ref: "/tabula-rasa/",
+                images: [],
+                paragraphs: [
+                    "This series of articles delves into the concept of modern programming languages, using Swift as a case study to explore how they address long-standing issues in software development while balancing legacy compatibility. It examines the shift from mutable, object-oriented paradigms to the immutability and simplicity emphasized by functional programming.",
+                    "Drawing parallels to historical transformations like Turkey’s alphabet reform, it discusses the trade-offs between breaking with the past and ensuring gradual transitions. Swift’s design choices, blending legacy support with modern principles, highlight the ongoing tension between innovation and practicality in building robust, future-proof systems."
+                ]
+            },
+            /*{
+                insights: 
+                [
+                `I realized that unless I created a program to handle their version of flowcharts, I would never be able to produce one they’d accept.
+                This led to the development of an algorithm with an immense level of recursion.
+                If you wonder why it is so difficult to create a program that draws flowcharts then visit apps detailed description.`
+            ]
+            }*/
+        ],
+        "Featured Project",
+        [
+            {
+                language: "Swift - SwiftUI - MVVM - iOS - macOS - Git",
+                title: "Felix Project",
+                textLines: "",
+                images: ["/assets/images/felix-project.png"],
+                paragraphs: [
+                    "Felix project consists of two programs I've written using Swift and SwiftUI. First one is the main app that I built for iOS & iPadOS, called Programming with Felix. Second one is a macOS tool that I built for myself to create the content of the main app, called FelixData. Both projects share a common JSON file, which is manipulated by FelixData, and forms the content of Programming with Felix."
+                ]
+            },
+            {
+                insights: 
+                [`
+                This is the most complex software I've ever written.
+                The app features various views that can display syntax-highlighted code snippets, 
+                compile-time errors and warnings, the flow of control through the code, and the code's output.
+                All these views can be nested within multiple-choice questions, either in the question itself or the options.
+                Additionally, it includes a practice element where users fill in the blanks with the correct options to create valid code.`,
+
+                `There is also another app called FelixData, designed to create and manage the content for the Felix app.
+                 FelixData generates and modifies a JSON file, which serves as the source of content for the Felix app.`
+                ]
+            },
+            {
+                title: "Programming with Felix",
+                textLines: "",
+                ref: "https://sites.google.com/view/programmingwithfelix/home",
+                images: ["/assets/images/felix-1.png", "assets/images/felix-2.png"],
+                paragraphs: [
+                    "Educational app that provides an interactive user experience to help people learn the fundamentals of programming."
+                ]
+            },
+            {
+                title: "Felix Data",
+                textLines: "",
+                images: ["/assets/images/felix-data.png"],
+                paragraphs: [
+                    "Utility program that I built for myself to create and manipulate the content of Programming with Felix app."
+                ]
+            }
+        ]
+        
+
+        ];
+
+        const contentContainer = document.getElementById("content-container");
+        metasections.forEach((sections) => {
+            if (isString(sections)) {
+                const tit = document.createElement("h1");
+                tit.textContent = sections;
+                tit.style.marginTop = "0";
+                tit.style.marginBottom = "4rem";
+                tit.style.paddingLeft = "1rem";
+                contentContainer.appendChild(tit);
+            }
+            else {
+        sections.forEach((section, index) => {
+            const container = document.createElement("div");
+            container.classList.add("rounded-container");
+            if (index == 0) {
+                container.style.borderTopLeftRadius = "1rem";
+                container.style.borderTopRightRadius = "1rem";
+                container.style.backgroundColor = "#2E8B57";
+            }
+            if (index == sections.length - 1) {
+                container.style.borderBottomLeftRadius = "1rem";
+                container.style.borderBottomRightRadius = "1rem";
+                container.style.marginBlockEnd = "5rem"
+            }
+
+            if (section.insights != null) {
+                const tit = document.createElement("h1");
+                tit.textContent = "Developer's Insight";
+                container.appendChild(tit);
+                contentContainer.appendChild(container);
+
+                section.insights.forEach(par => {
+                    const paragraphElement = document.createElement("p");
+                    paragraphElement.textContent = par;
+                    container.appendChild(paragraphElement);
+                });
+                container.style.backgroundColor = "#4A1228";
+                contentContainer.appendChild(container);
+                return;
+            }
+/*
+            if (section.specs != null) {
+                const tit = document.createElement("h3");
+                tit.textContent = "Technical Specs";
+                container.appendChild(tit);
+                contentContainer.appendChild(container);
+                const paragraphElement = document.createElement("p");
+                section.specs.forEach((spec, index) => {
+                    paragraphElement.innerHTML += "<b>" + spec[0] + "</b>" + ": " + spec[1];
+                    paragraphElement.innerHTML += "</br>";
+                })
+                // container.style.backgroundColor = "#2E8B57";
+                container.appendChild(paragraphElement);
+                contentContainer.appendChild(container);
+                return;
+            }
+        */
+            // Add title
+
+            if (section.language != null) {
+                // Create the text element for "Swift"
+                const textElement = document.createElement("h3");
+                textElement.textContent = section.language;
+                container.appendChild(textElement);
+            }
+
+            const title = document.createElement("h1");
+            title.textContent = section.title;
+            
+            title.style.marginBottom = "2rem";
+
+            console.log(section.images, section.images.length == 0, index == 0);
+            if (section.images.length == 0 && index == 0) {
+                title.style.marginBottom = "1rem";
+            }
+            container.appendChild(title);
+
+            if (section.image != []) {
+            // <img src="image-path.jpg" alt="Description of the image" style="max-width:100%; height:auto;">
+            const co = document.createElement("div");
+            co.style.maxWidth = "40rem";
+            co.style.display = "flex"; // Use flexbox
+            co.style.gap = "10px"; // Add some spacing between images 
+            co.style.marginBottom = "1rem";   
+
+            section.images.forEach((img, index) => {
+                const image = document.createElement("img");
+                image.src = img;
+                image.style.maxWidth = "100%";
+                image.style.minWidth = "42%";
+                image.style.maxHeight = "420px"
+                image.style.marginBottom = "1rem";
+                co.appendChild(image);
+            })
+
+            // Add text lines
+            const textLines = document.createElement("h2");
+            textLines.innerHTML = section.textLines.split("\n").join("<br>");
+            container.appendChild(textLines);
+
+            container.appendChild(co);
+        }
+            section.paragraphs.forEach(paragraph => {
+                const paragraphElement = document.createElement("p");
+                paragraphElement.textContent = paragraph;
+                container.appendChild(paragraphElement);
+            });
+
+            if (section.magic != null) {
+                const anchorElement = document.createElement("a");
+                anchorElement.style.display = "inline-block";
+                anchorElement.target = "_blank";
+                anchorElement.href = "https://youtu.be/V_7mmwpgJHU?list=PLE18841CABEA24090&t=2885"; // The link destination
+                anchorElement.textContent = "The way in which you would construct a recursive process is by wishful thinking. You have to believe.";
+                anchorElement.style.marginBottom = "1rem";
+                container.appendChild(anchorElement);
+            }
+
+            // Add "Read More" button
+            const nextIsInsight = (index < (sections.length - 1)) && sections[index+1].insights != null
+            if ((index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) && section.ref != null) {
+                const button = document.createElement("button");
+                button.classList.add("read-more-button");
+                button.textContent = (index == 0) ? "Start with Tabula Rasa" : "Learn more";
+                button.addEventListener("click", function() {
+                    if (index == 0) {
+                        window.location.href = section.ref;  // This opens the tabula-rasa.html page
+                    }
+                    else {
+                        window.open(section.ref, "_blank");
+                    }
+                });
+                container.appendChild(button);
+            }
+            // Append section container to the main content container
+            contentContainer.appendChild(container);
+        });
+    }
+    });
+    </script>
+</body>
+<footer>
+    <p>&#169; Mert Arıcan 2024</p>
+</footer>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Tabula Rasa</title>
+    <style>
+        :root {
+            --bg-color: rgba(14, 14, 14, 1.0);/* #202020;*/
+            /* #0e0e0e; /* Black almost */
+            --font-color: #e0e0e0;
+            /* Light Gray */
+            --font-color2: #f6f6f6;
+            /* Light Gray */
+            --container-bg-color: rgba(74, 45, 61, 0.0);
+            /* Dark Gray */
+            --container-bg-color2: rgba(14, 14, 14, 1.0);
+            --w: 42rem;
+            /* rgba(197, 135, 35, 0.0); /* Dark Gray */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--font-color);
+        }
+
+        /* Apply the same styles to the bullet list */
+        ul {
+            max-width: var(--w);
+            /* Match max width of paragraphs */
+            /* Center list horizontally */
+            padding: 0 0rem;
+            /* Match padding of paragraphs */
+            line-height: 1.6;
+            /* Match line height */
+            text-align: justify;
+            /* Justify text in list items */
+            hyphens: auto;
+            /* Enable hyphenation */
+            list-style-position: inside;
+            margin: 0 auto;
+            /* Bullets outside the list item */
+        }
+
+        ul li {
+            font-size: 16px;
+            /* Match font size of paragraphs */
+            margin-bottom: 0rem;
+            /* Add space between list items */
+            padding: 0.5rem 0rem;
+            /* Match padding of paragraphs */
+        }
+
+
+        #section-container {
+            background-color: var(--container-bg-color);
+            /* Gray background */
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #title-container {
+            background-color: var(--container-bg-color);
+            /* Gray background */
+            width: 100%;
+            /* Full width */
+            padding: 1rem 1rem 1rem;
+            /* Padding for spacing */
+            box-sizing: border-box;
+            /* Ensure padding doesn't affect width */
+            margin: 0 auto;
+            margin-bottom: 1rem;
+        }
+
+        #title-container h1,
+        #title-container h2 {
+            padding-bottom: 0;
+            padding-top: 0;
+            margin-top: 0;
+            max-width: var(--w);
+            /* Constrained text width */
+            margin: 0 auto;
+            /* Center content horizontally */
+            text-align: left;
+            /* Optional: Center-align text */
+        }
+
+        #title-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 3rem;
+            text-align: left;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+/*
+@code
+<pre>
+<span class="keyword">function</span> <span class="function">helloWorld</span>() {
+    <span class="comment">// This is a comment</span>
+    <span class="keyword">console</span>.<span class="function">log</span>(<span class="string">"Hello, World!"</span>);
+}
+<span class="annotation">@Annotation</span> <span class="keyword">let</span> x = <span class="number">42</span>;</pre>
+*/
+        #title-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            font-weight: lighter;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+            line-height: 2.0;
+            text-align: left;
+            color:/* #ff79c6; */
+            rgb(74, 179, 56);
+        }
+
+        #section-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            text-align: left;
+            margin-bottom: 1rem;
+            color: var(--font-color);
+        }
+
+        #section-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            margin-bottom: 0rem;
+            line-height: 2.0;
+            text-align: left;
+            color: var(--font-color);
+        }
+
+        #section-container p {
+            max-width: var(--w);
+            font-size: 16px;
+            margin: 0 auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        #title-container h2 .author {
+            color: #FFD700;
+            /* Yellow color for the author */
+            font-size: 14px;
+            /* Smaller font size */
+            text-align: left;
+            /* Align to the right */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <a href="/">Debut Ave</a>
+            </div>
+            <div class="right">
+                <a href="/essays/">Essays</a>
+                <a href="/project/">Projects</a>
+                <a href="/about/">About</a>
+            </div>
+            <!-- Menu Button (only visible on small screens) -->
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        </div>
+    </nav>
+
+    <!-- Vertical menu options below the navbar (only visible on small screens) -->
+    <div class="menu-options">
+        <a href="/essays/">Essays</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+    </div>
+
+
+    <script>
+        const title = "Tabula Rasa";
+        const textLines = "Clean plate\nTabula rasa for my children\nLet's clean up\nBreak the chain of the fuck-ups of the fathers\nIt is time\n...";
+        const content = `Swift is what you'd call a 'modern' programming language. It was born in 2014, and I don't even know what generation it belongs to, but it is one of those who was born right into the world of iPads and iPhones--literally.
+
+What does it mean for a programming language to be modern, this is the important question. The answer basically is that, it doesn't repeat the 'fuck up of the fathers'.
+
+As time has passed, programming community realized that specific language features can give rise to various software challenges.
+
+These features often complicate code readability, make debugging more difficult, obstruct refactoring, and heighten security risks, ultimately causing numerous issues.
+Problems like "null pointer exceptions," "out-of-bounds errors," "integer overflows," and "memory leaks" have become the usual suspects over the years, regardless of language, paradigm, or environment. 
+
+A modern language is one that helps developers avoid the mistakes people have repeatedly made over the last 40 years, which have wasted billions of dollars and thousands of hours of engineering time.
+
+Of course, these changes aren’t just mechanical nor merely cosmetic; they are more fundamental, involving shifts in concepts, paradigms, and the basic mechanisms to achieve abstraction. 
+
+For example, it is widely accepted today that mutability is the source of many issues, and unless absolutely necessary, immutable data types should be preferred.
+
+People have also realized that object-oriented programming (OOP) isn’t the only way to write high-quality, loosely coupled, modular software. The functional paradigm, which emphasizes immutable data types and functions as first-class citizens, has been (re)discovered.
+
+Experience with languages that have verbose syntax (Perl is famous for that) has shown that syntax should be clear and readable. It has become obvious that there is no virtue in writing code that cannot be read a week later—even by the author themselves.
+
+Thus, a modern language is likely to have at least one of the following characteristics:
+
+-Support for multiple paradigms
+
+-Emphasis on value types and compile-time checks
+
+-Treatment of functions as first-class citizens
+
+-Type inference
+
+-Automatic memory management
+
+All of this should be accompanied by a clear and readable syntax, making it nearly impossible to fall victim to common programming errors.
+
+However, there isn't a single holy way to achieve and implement all this. Choices made to keep developers away from the usual suspects may introduce new kinds of challenges, which could lead to new types of errors and bugs. 
+
+After all, is it possible to create a language that completely eliminates mistakes?
+But even if such a language existed, would it even matter? How can you learn in an environment where you can't make mistakes?`;
+
+        // Get the containers
+        const titleContainer = document.createElement('div');
+        titleContainer.id = 'title-container';
+        const sectionContainer = document.createElement('div');
+        sectionContainer.id = 'section-container';
+
+        // Add title
+        const titleElement = document.createElement('h1');
+        titleElement.textContent = title;
+        titleContainer.appendChild(titleElement);
+
+        // Add subtitle (textLines)
+        const textLinesElement = document.createElement('h2');
+        textLinesElement.innerHTML = textLines.split("\n").join("<br>") /* + "<br>- Björk Guðmundsdóttir"; /*"<br><span class='author'>- Björk</span>";*/
+        titleContainer.appendChild(textLinesElement);
+
+        // Split the content into paragraphs and bullets
+        const contentArray = content.split("\n\n"); // Paragraphs are separated by double newlines
+
+    contentArray.forEach((paragraph, index) => {
+    // If paragraph starts with @code, treat it as a code block
+    if (paragraph.startsWith("@code")) {
+        const contt = document.createElement("div");
+        contt.classList.add("contt");
+
+        // Create a container for the code editor view
+        const codeEditorContainer = document.createElement("div");
+        codeEditorContainer.classList.add("code-viewer-container");
+
+        // Create the editor view
+        const codeViewer = document.createElement("div");
+        codeViewer.classList.add("code-viewer");
+        
+        const lineNumbersDiv = document.createElement("div");
+        lineNumbersDiv.classList.add("line-numbers");
+        
+        const codeContentDiv = document.createElement("div");
+        codeContentDiv.classList.add("code-content");
+
+        // Strip "@code" and other leading/trailing spaces, then split into lines
+        const codeText = paragraph.slice(5).trim(); // Remove "@code" prefix
+        const codeLines = codeText.split("\n");
+
+        // Add code content with syntax highlighting
+        let codeHTML = '';
+        codeLines.forEach((line, index) => {
+            // Example of how to wrap parts of the line in <span> with classes for syntax
+            // You can add more complex logic for syntax highlighting if needed
+            if (index == 0) {
+                codeHTML += `<span>${line}</span>`; // Simple wrap as a placeholder
+            }
+            else if (index == (codeLines.length - 1)) {
+                codeHTML += `${line}`; // Simple wrap as a placeholder
+            }
+            else {
+                codeHTML += `<span>${line}</span><br/>`; // Simple wrap as a placeholder
+            }
+        });
+        console.log(codeLines)
+        console.log(codeHTML)
+        
+        codeContentDiv.innerHTML = codeHTML;
+
+        // Automatically generate line numbers based on the code lines
+        lineNumbersDiv.innerHTML = Array.from({ length: codeLines.length - 1 }, (_, i) => `<div>${i + 1}</div>`).join("");
+
+        // Append line numbers and code content to the code viewer
+        codeViewer.appendChild(lineNumbersDiv);
+        codeViewer.appendChild(codeContentDiv);
+    contt.appendChild(codeEditorContainer)
+        codeEditorContainer.appendChild(codeViewer);
+
+        // Add the code editor container to the section
+        sectionContainer.appendChild(contt);
+    }
+    else if (paragraph.startsWith("-")) {
+        // If the paragraph starts with a bullet (e.g. "- text"), treat it as a list item
+        const _listItem = document.createElement("div");
+        _listItem.classList.add("contt");
+        const listItem = document.createElement("ul");
+        paragraph.split("\n").forEach(line => {
+            if (line.startsWith("-")) {
+                const listElement = document.createElement("li");
+                listElement.textContent = line.slice(1).trim(); // Remove the leading "-"
+                listItem.appendChild(listElement);
+            }
+        });
+        _listItem.appendChild(listItem)
+        sectionContainer.appendChild(_listItem);
+    }
+    else {
+        // For normal paragraphs, just append as usual
+        const paragraphElement = document.createElement("p");
+        paragraphElement.textContent = paragraph;
+        sectionContainer.appendChild(paragraphElement);
+    }
+});
+
+
+        const titleContainerClone = titleContainer.cloneNode(true);
+        const newTextLines = "...\nBut you will have to deal with shit soon enough\nI hoped to give you the least amount of luggage\nYou got the right to make your own fresh mistakes\nAnd not repeat other's failures\n...\n- Björk Guðmundsdóttir".split("\n").join("<br>");
+        titleContainerClone.querySelector('h2').innerHTML = newTextLines;
+        titleContainerClone.style.marginBottom = '0rem'
+
+        //titleContainerClone.style.backgroundColor = 'white'
+        titleContainerClone.style.padding = "1rem 1rem";
+        const h1Element = titleContainerClone.querySelector('h1');
+        if (h1Element) {
+            h1Element.remove();
+        }
+
+        const navContainer = document.createElement("div");
+        navContainer.classList.add("navigation");
+
+        const previousButton = document.createElement("button");
+        previousButton.classList.add("nav-button");
+        previousButton.id = "previous";
+        previousButton.textContent = "Previous";
+        previousButton.disabled = true;
+        navContainer.appendChild(previousButton);
+
+        const nextButton = document.createElement("button");
+        nextButton.classList.add("nav-button");
+        nextButton.id = "next";
+        nextButton.textContent = "Next";
+        nextButton.addEventListener("click", function() {
+                window.location.href = "/i-have-seen-it-all/";  // This opens the tabula-rasa.html page
+            });
+        navContainer.appendChild(nextButton);
+        titleContainerClone.appendChild(navContainer);
+        navContainer.style.marginTop = "1rem";
+        // Append the containers to the body
+        document.body.appendChild(titleContainer);
+        document.body.appendChild(sectionContainer);
+        document.body.appendChild(titleContainerClone);
+
+        function toggleMenu() {
+            const menuOptions = document.querySelector('.menu-options');
+            menuOptions.classList.toggle('show');
+        }
+    </script>
+
+</body>
+<footer>
+    <p>&#169; Mert Arıcan 2024</p>
+</footer>
+</html>

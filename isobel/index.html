@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Isobel</title>
+    <style>
+        :root {
+            --bg-color: rgba(14, 14, 14, 1.0);/* #202020;*/
+            /* #0e0e0e; /* Black almost */
+            --font-color: #e0e0e0;
+            /* Light Gray */
+            --font-color2: #f6f6f6;
+            /* Light Gray */
+            --container-bg-color: rgba(74, 45, 61, 0.0);
+            /* Dark Gray */
+            --container-bg-color2: rgba(14, 14, 14, 1.0);
+            --w: 42rem;
+            /* rgba(197, 135, 35, 0.0); /* Dark Gray */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--font-color);
+        }
+
+        /* Apply the same styles to the bullet list */
+        ul {
+            max-width: var(--w);
+            /* Match max width of paragraphs */
+            /* Center list horizontally */
+            padding: 0 0rem;
+            /* Match padding of paragraphs */
+            line-height: 1.6;
+            /* Match line height */
+            text-align: justify;
+            /* Justify text in list items */
+            hyphens: auto;
+            /* Enable hyphenation */
+            list-style-position: inside;
+            margin: 0 auto;
+            /* Bullets outside the list item */
+        }
+
+        ul li {
+            font-size: 16px;
+            /* Match font size of paragraphs */
+            margin-bottom: 0rem;
+            /* Add space between list items */
+            padding: 0.5rem 0rem;
+            /* Match padding of paragraphs */
+        }
+
+
+        #section-container {
+            background-color: var(--container-bg-color);
+            /* Gray background */
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #title-container {
+            background-color: var(--container-bg-color);
+            /* Gray background */
+            width: 100%;
+            /* Full width */
+            padding: 1rem 1rem 1rem;
+            /* Padding for spacing */
+            box-sizing: border-box;
+            /* Ensure padding doesn't affect width */
+            margin: 0 auto;
+            margin-bottom: 1rem;
+        }
+
+        #title-container h1,
+        #title-container h2 {
+            padding-bottom: 0;
+            padding-top: 0;
+            margin-top: 0;
+            max-width: var(--w);
+            /* Constrained text width */
+            margin: 0 auto;
+            /* Center content horizontally */
+            text-align: left;
+            /* Optional: Center-align text */
+        }
+
+        #title-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 3rem;
+            text-align: left;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            color: var(--font-color);
+            /* Light gray text */
+        }
+/*
+@code
+<pre>
+<span class="keyword">function</span> <span class="function">helloWorld</span>() {
+    <span class="comment">// This is a comment</span>
+    <span class="keyword">console</span>.<span class="function">log</span>(<span class="string">"Hello, World!"</span>);
+}
+<span class="annotation">@Annotation</span> <span class="keyword">let</span> x = <span class="number">42</span>;</pre>
+*/
+        #title-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            font-weight: lighter;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+            line-height: 2.0;
+            text-align: left;
+            color:/* #ff79c6; */
+            rgb(74, 179, 56);
+        }
+
+        #section-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            text-align: left;
+            margin-bottom: 1rem;
+            color: var(--font-color);
+        }
+
+        #section-container h2 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            margin-bottom: 0rem;
+            line-height: 2.0;
+            text-align: left;
+            color: var(--font-color);
+        }
+
+        #section-container p {
+            max-width: var(--w);
+            font-size: 16px;
+            margin: 0 auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+            line-height: 1.6;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        #title-container h2 .author {
+            color: #FFD700;
+            /* Yellow color for the author */
+            font-size: 14px;
+            /* Smaller font size */
+            text-align: left;
+            /* Align to the right */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <a href="/">Debut Ave</a>
+            </div>
+            <div class="right">
+                <a href="/essays/">Essays</a>
+                <a href="/projects/">Projects</a>
+                <a href="/about/">About</a>
+            </div>
+            <!-- Menu Button (only visible on small screens) -->
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        </div>
+    </nav>
+
+    <!-- Vertical menu options below the navbar (only visible on small screens) -->
+    <div class="menu-options">
+        <a href="/essays/">Essays</a>
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <script>
+        const title = "Isobel";
+        const textLines = "My name Isobel\nMarried to myself\nMy love Isobel\nLiving by herself\n...";
+        const content = `There are two basic capabilities that computers have:
+
+-being able to represent and store information,
+
+-being able to perform operations on information.
+
+In fact, if you’ve spent some time on LISP’s eval/apply loop or the Von Neumann architecture, you already know that the distinction between the two is not that clear, if there is any distinction at all.
+
+This is because the program itself is also represented and stored as data, and when needed, it is fetched from memory to get executed.
+
+So passing data all around the components of the software and hardware is the essential operation performed all the time during computation, because it is literally what computation is.
+
+There are two possible ways to pass data around in computers:
+
+-pass by value
+
+-pass by reference
+
+When data is passed by reference, it means that the pointer to the address of the data is actually passed to the receiver, instead of the actual data. As a result of that, changes on one side affect the other side because they manipulate the exact same place in memory. This is the physical way of passing data.
+
+If data is passed by value, meaning that a copy of the original data is passed to the receiver, that means that these two pieces of data are independent from each other; changes on one don’t affect the other because they reside in a different place in memory. This is the mathematical way of passing data.
+
+Let’s follow an example:
+
+@code
+<pre>
+<span class="keyword">var</span> <span class="variable">globalOp</span> = <span class="number">4</span></br>
+<span class="keyword">func</span> <span class="function">addFour</span>(<span class="keyword">_</span> <span class="variable">operand</span>: <span class="keyword">Int</span>) -> <span class="keyword">Int</span> {
+    <span class="keyword">var</span> <span class="variable">tmp</span> = <span class="variable">operand</span>
+    <span class="variable">tmp</span> = <span class="variable">tmp</span> + <span class="number">4</span>
+    <span class="keyword">return</span> <span class="variable">tmp</span>
+}</br>
+<span class="function">addFour</span>(<span class="variable">globalOp</span>)
+<span class="function">addFour</span>(<span class="variable">globalOp</span>)</pre>
+
+**h1Int As A Reference Type**
+
+Above is an example of a simple function that basically takes one argument named operand, adds 4 to it, and then returns the result. 
+
+Now assume there are two different ways Int behaves, either as a value or as a reference.
+
+If Int behaves as a reference, then after executing the first line of the function, tmp will also point to the same memory location as the globalOp variable because globalOp is the variable passed as an argument when calling this function.
+
+After the execution of the second line of the function body, globalOp's value also changes because that was what operand was pointing at. So at this point, globalOp has the value 8.
+
+**Alert Alert!**
+
+This violates mathematics.
+
+Mathematics, by definition, should be independent of time. The result of an arithmetic operation doesn’t change over time, but here, if I were to call the same function with the same variable passed as a parameter, I would get a different result (first call 8, second call 12), which contradicts mathematics.
+
+Also, imagine different tasks running in parallel, and assume there is another process that manipulates the globalOp variable too. In that case, the result of the globalOp variable could be something totally irrelevant after the execution of the addFour function because there are other tasks that affect globalOp.
+
+Because again, we are not in this mathematical ideal world but in this harsh physical reality, and we are manipulating the exact same pack of bits that reside in the exact same place in space-time (computer memory).
+
+For two different things to occupy the exact same place in space-time, they must exist at different times. This, in this case, makes even the simplest programs, like ours, unprovable and unreliable because of the so-called side effects of passing by reference.
+
+**h1Int As A Value Type**
+
+Now think about the exact code snippet above, but the only difference this time is that Int behaves like a 'value'. That means that when passed to a function or assigned to a variable, the value is going to get copied instead of a pointer being shared.
+
+After the execution of the first line of the function body, tmp is going to have the exact same value as operand (4 in this case), but in a different place in memory. The function will return the value 8 as expected, but globalOp's value remains unchanged, which means it is still 4.
+
+In this case, if I call the same function with the same variable, the result is going to be the same, independent of the number of tries.
+
+Because when things behave like a value, they act according to mathematics and do not change over time. This makes the written code a lot easier to understand and to prove that it is correct.
+
+**h1struct vs class**
+
+Swift provides two different ways for users to create their own custom data types: **struct** and **class**.
+
+Let's see a simple example for both:
+
+@code
+<pre><code class="swift">
+<span class="keyword">struct</span> <span class="type">Foo</span> {
+    <span class="keyword">let</span> <span class="variable">bar</span>: <span class="type">Int</span>
+}</code></pre>
+
+@code
+<pre><code class="swift">
+<span class="keyword">class</span> <span class="type">Foo</span> {
+    <span class="keyword">let</span> <span class="variable">bar</span>: <span class="type">Int</span>
+}</code></pre>
+
+While these two look almost identical, the one defined using the keyword 'class' acts as a reference, and the one defined as 'struct' acts as a value.
+
+So classes are **reference types**, and structs are **value types**.
+
+When passed as an argument to a function, or assigned to a variable, reference types will only copy the pointer to the exact point in memory (shallow copy), while the value types will copy literally the whole struct, and live in a totally different area in memory (deep copy).
+
+But which one are we going to use to define our custom data types?
+
+This is where there is a tension between the old Objective-C OOP way of writing software and the new Swift functional way of writing software.
+
+The functional paradigm emphasizes immutability, meaning parts of the code should be time-independent, while the emphasis of OOP is on dynamism, meaning software should be flexible, not provable; more like a biological thing rather than mechanical.
+
+So mutation is not considered evil in OOP because the focus is on a total different point.
+
+Also, back in the time when OOP started, hardware was extremely limited, so pass-by-copy would be too expensive as a default way to pass data. That’s why pass by reference was inevitable.
+
+Whereas today Swift provides classes  to be used only where necessary to have reference types, and to be backward compatible with this Objective-C world, but provides structs as the default way to create and pass data because of the advantages of value types explained above, as a part of this new functional programming paradigm.
+
+In terms of code reuse mechanisms, structs can only use protocols (interfaces in classical OOP), while classes also support inheritance.
+
+So OOP means dynamism (mutability) means classes means inheritance means Objective-C; while FP means immutability means structs means protocols means Swift.
+
+**h1Foundation**
+All the built-in types that come with Swift's Foundation library are structs.
+
+So Ints are structs, Strings are structs, Doubles are structs, and also all of the collection types are structs. So arrays, sets, dictionaries—they are all structs, meaning they get copied when passed around or assigned.
+
+But wait a minute!
+
+Does it really make sense to copy a thousand-element array when passing it into a function? 
+
+Wouldn’t it be more performant if they were just passed by reference, without an explicit copy?
+
+The answer lies in the memory management strategy of Swift. 
+
+Let’s explore that in the next chapter.
+`;
+
+
+        // Get the containers
+        const titleContainer = document.createElement('div');
+        titleContainer.id = 'title-container';
+        const sectionContainer = document.createElement('div');
+        sectionContainer.id = 'section-container';
+
+        // Add title
+        const titleElement = document.createElement('h1');
+        titleElement.textContent = title;
+        titleContainer.appendChild(titleElement);
+
+        // Add subtitle (textLines)
+        const textLinesElement = document.createElement('h2');
+        textLinesElement.innerHTML = textLines.split("\n").join("<br>") /* + "<br>- Björk Guðmundsdóttir"; /*"<br><span class='author'>- Björk</span>";*/
+        titleContainer.appendChild(textLinesElement);
+
+        // Split the content into paragraphs and bullets
+        const contentArray = content.split("\n\n"); // Paragraphs are separated by double newlines
+
+    contentArray.forEach((paragraph, index) => {
+    // If paragraph starts with @code, treat it as a code block
+    if (paragraph.startsWith("@code")) {
+        const contt = document.createElement("div");
+        contt.classList.add("contt");
+
+        // Create a container for the code editor view
+        const codeEditorContainer = document.createElement("div");
+        codeEditorContainer.classList.add("code-viewer-container");
+
+        // Create the editor view
+        const codeViewer = document.createElement("div");
+        codeViewer.classList.add("code-viewer");
+        
+        const lineNumbersDiv = document.createElement("div");
+        lineNumbersDiv.classList.add("line-numbers");
+        
+        const codeContentDiv = document.createElement("div");
+        codeContentDiv.classList.add("code-content");
+
+        // Strip "@code" and other leading/trailing spaces, then split into lines
+        const codeText = paragraph.slice(5).trim(); // Remove "@code" prefix
+        const codeLines = codeText.split("\n");
+
+        // Add code content with syntax highlighting
+        let codeHTML = '';
+        codeLines.forEach((line, index) => {
+            // Example of how to wrap parts of the line in <span> with classes for syntax
+            // You can add more complex logic for syntax highlighting if needed
+            if (index == 0) {
+                codeHTML += `<span>${line}</span>`; // Simple wrap as a placeholder
+            }
+            else if (index == (codeLines.length - 1)) {
+                codeHTML += `${line}`; // Simple wrap as a placeholder
+            }
+            else {
+                codeHTML += `<span>${line}</span><br/>`; // Simple wrap as a placeholder
+            }
+        });
+        console.log(codeLines)
+        console.log(codeHTML)
+        
+        codeContentDiv.innerHTML = codeHTML;
+        
+        const regex = /<\/br>/g;  // Regular expression to match </br> tags
+        const matches = paragraph.match(regex);  // Find all matches of </br>
+
+        const brCount = matches ? matches.length : 0; 
+
+        // Automatically generate line numbers based on the code lines
+        lineNumbersDiv.innerHTML = Array.from({ length: (codeLines.length - 1) + brCount }, (_, i) => `<div>${i + 1}</div>`).join("");
+
+        // Append line numbers and code content to the code viewer
+        codeViewer.appendChild(lineNumbersDiv);
+        codeViewer.appendChild(codeContentDiv);
+    contt.appendChild(codeEditorContainer)
+        codeEditorContainer.appendChild(codeViewer);
+
+        // Add the code editor container to the section
+        sectionContainer.appendChild(contt);
+    }
+    else if (paragraph.startsWith("-")) {
+        // If the paragraph starts with a bullet (e.g. "- text"), treat it as a list item
+        const _listItem = document.createElement("div");
+        _listItem.classList.add("contt");
+        const listItem = document.createElement("ul");
+        paragraph.split("\n").forEach(line => {
+            if (line.startsWith("-")) {
+                const listElement = document.createElement("li");
+                listElement.textContent = line.slice(1).trim(); // Remove the leading "-"
+                listItem.appendChild(listElement);
+            }
+        });
+        _listItem.appendChild(listItem)
+        sectionContainer.appendChild(_listItem);
+    }
+    else {
+        // For normal paragraphs, just append as usual
+        const paragraphElement = document.createElement("p");
+        const regex = /\*\*(.*?)\*\*/g;
+        // Replace the matched words with <strong> tag around them
+        paragraph = paragraph.replace(regex, (match, p1) => {
+            if (p1.startsWith("h1")) {
+                p1 = p1.slice(2)
+                return `<h1>${p1}</h1>`;
+            } else {
+                return `<strong>${p1}</strong>`;
+            }
+        });
+        paragraphElement.innerHTML = paragraph;
+        sectionContainer.appendChild(paragraphElement);
+    }
+});
+
+
+        const titleContainerClone = titleContainer.cloneNode(true);
+        const newTextLines = "My name Isobel\nMarried to myself\nMy love Isobel\nLiving by herself\n...\n-Björk, Nellee Hooper, Marius de Vries, Sjón".split("\n").join("<br>");
+        titleContainerClone.querySelector('h2').innerHTML = newTextLines;
+        titleContainerClone.style.marginBottom = '0rem'
+
+        //titleContainerClone.style.backgroundColor = 'white'
+        titleContainerClone.style.padding = "1rem 1rem";
+        const h1Element = titleContainerClone.querySelector('h1');
+        if (h1Element) {
+            h1Element.remove();
+        }
+
+        const navContainer = document.createElement("div");
+        navContainer.classList.add("navigation");
+
+        const previousButton = document.createElement("button");
+        previousButton.classList.add("nav-button");
+        previousButton.id = "previous";
+        previousButton.textContent = "Previous";
+        previousButton.addEventListener("click", function() {
+                window.location.href = "/ocenia-i/";  // This opens the tabula-rasa.html page
+            });
+        navContainer.appendChild(previousButton);
+
+        const nextButton = document.createElement("button");
+        nextButton.classList.add("nav-button");
+        nextButton.id = "next";
+        nextButton.textContent = "Coming Soon";
+        nextButton.disabled = true;
+        /*nextButton.addEventListener("click", function() {
+                window.location.href = "isobel";  // This opens the tabula-rasa.html page
+            });*/
+        navContainer.appendChild(nextButton);
+        titleContainerClone.appendChild(navContainer);
+        navContainer.style.marginTop = "7rem";
+        // Append the containers to the body
+        document.body.appendChild(titleContainer);
+        document.body.appendChild(sectionContainer);
+        document.body.appendChild(titleContainerClone);
+
+        function toggleMenu() {
+            const menuOptions = document.querySelector('.menu-options');
+            menuOptions.classList.toggle('show');
+        }
+    </script>
+
+</body>
+<footer>
+    <p>&#169; Mert Arıcan 2024</p>
+</footer>
+</html>
