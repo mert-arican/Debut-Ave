@@ -78,19 +78,6 @@
             font-size: 14px;
         }
 
-        .deprecated-badge {
-            background-color: #8b0000;
-            color: #ffffff;
-            font-size: 0.75rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 0.25rem;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-            font-family: 'Roboto Mono', monospace;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
         .deprecated-container {
             background-color: #1a1a1a !important;
             opacity: 0.65;
@@ -221,22 +208,25 @@
         [
             {
                 language: "Swift 6 - TypeScript - React - Zustand - WebAssembly",
-                title: "EggScript: Learn Programming",
+                title: "<span id='eggscript-section'>EggScript: Learn Programming</span>",
                 textLines: "",
                 ref: "https://eggscript.com",
-                images: ["assets/eggscript-mockup1.png", "assets/eggscript-mockup2.png"], // Görsel isimlerini kendi assetlerine göre düzenlersin
+                images: ["assets/eggscript-mockup1.png", "assets/eggscript-mockup2.png"],
                 paragraphs: [
-                    "An interactive, educational programming platform optimized heavily for iPad and Mac. Features a completely offline client-side execution environment, utilizing an embedded Pyodide runtime.",
-                    "Initially engineered as a native iOS app leveraging Swift Strict Concurrency, the engine was later architecturally mapped to a web stack and seamlessly packaged into an App Store bundle."
+                    "An educational programming platform designed to work seamlessly across both iPad and the web.",
+                    "Initially engineered as a native iOS app leveraging Swift 6 Strict Concurrency, the core engine was later architecturally ported to a TypeScript/React web stack. It features a completely offline execution environment via Pyodide."
                 ]
             },
             {
                 insights: 
                 [`
-                This platform is the realization of a vision I had years ago. What I initially tried to achieve with my early projects—a flawless, interactive demo engine—is finally possible today thanks to the rapid evolution of LLMs, Apple's Swift 6 structured concurrency, and the architectural experience I've gained over the years.
+                An EggScript session begins with a compiled artifact—an "egg". The engine's core orchestrator, the DemoDirector, parses this script and hatches it into a synchronized, interactive lecture. It ties execution steps directly to the physical playback time of the audio service using an alignment map.
                 `,
                 `
-                The engine handles text manipulation deterministically via abstract document indices rather than fragile spatial coordinates, perfectly synchronizing TTS audio with visual demo actions. It is the ultimate expression of my long-standing passion for CS101 and systems engineering.
+                Rather than displaying static code blocks, the engine organically types, modifies, and deletes code in real-time with dynamic per-character delays. Interactivity is handled via pause gates: the execution loop physically halts both the audio stream and the visual state until the user satisfies strict criteria (e.g., submitting terminal input), ensuring true interactive learning.
+                `,
+                `
+                Currently, I am experimenting with AI agents and LLMs to automatically generate and compile these complex course artifacts.
                 `]
             }
         ],
@@ -305,23 +295,38 @@
         "Algorithmic Explorations & Archives",
         [
             {
-                language: "Swift - SwiftUI - macOS (Deprecated)",
-                title: 'Felix Project <span class="deprecated-badge">Superseded</span>',
+                language: "Swift - SwiftUI - MVVM - iOS - macOS - Git",
+                title: "Felix Project",
                 textLines: "",
                 images: ["assets/felix-project.png"],
                 paragraphs: [
-                    "Felix project consisted of two programs I've written using Swift and SwiftUI. The first was an iOS learning app, and the second was a macOS tool to create the content for it."
+                    "Felix project consists of two programs I've written using Swift and SwiftUI. First one is the main app that I built for iOS & iPadOS, called Programming with Felix. Second one is a macOS tool that I built for myself to create the content of the main app, called FelixData. Both projects share a common JSON file, which is manipulated by FelixData, and forms the content of Programming with Felix."
                 ],
                 isDeprecated: true
             },
             {
-                insights: 
-                [`
-                This was my initial, ambitious attempt at building a comprehensive CS101 learning platform. While the app functioned well and featured syntax-highlighted code execution, the tightly coupled architecture made it difficult to scale and integrate new programming languages.
-                `,
-                `
-                Recognizing the architectural bottlenecks, I chose to deprecate Felix completely. I threw out the old codebase and rewrote the core execution engine from scratch with a highly extensible, polymorphic design—which ultimately became EggScript.
-                `]
+                insights: [
+                    `<span style="color: #e74c3c; font-weight: bold; cursor: pointer; display: block; margin-bottom: 1rem;" onclick="document.getElementById('eggscript-section').scrollIntoView({behavior: 'smooth'});">⚠️ NOTE: This project is deprecated and has been entirely superseded by EggScript. Click here to view the new architecture.</span>`,
+                    "This is the most complex software I've ever written. The app features various views that can display syntax-highlighted code snippets, compile-time errors and warnings, the flow of control through the code, and the code's output. All these views can be nested within multiple-choice questions, either in the question itself or the options. Additionally, it includes a practice element where users fill in the blanks with the correct options to create valid code.",
+                    "There is also another app called FelixData, designed to create and manage the content for the Felix app. FelixData generates and modifies a JSON file, which serves as the source of content for the Felix app."
+                ]
+            },
+            {
+                title: "Programming with Felix",
+                textLines: "",
+                ref: "https://sites.google.com/view/programmingwithfelix/home",
+                images: ["assets/felix-1.png", "assets/felix-2.png"],
+                paragraphs: [
+                    "Educational app that provides an interactive user experience to help people learn the fundamentals of programming."
+                ]
+            },
+            {
+                title: "Felix Data",
+                textLines: "",
+                images: ["assets/felix-data.png"],
+                paragraphs: [
+                    "Utility program that I built for myself to create and manipulate the content of Programming with Felix app."
+                ]
             }
         ],
         [
@@ -542,7 +547,7 @@
 
                         section.insights.forEach(par => {
                             const paragraphElement = document.createElement("p");
-                            paragraphElement.textContent = par;
+                            paragraphElement.innerHTML = par; // innerHTML kullanıldı ki tıklandığında kaydırma yapan kod çalışsın
                             container.appendChild(paragraphElement);
                         });
                         
@@ -560,7 +565,7 @@
                     }
 
                     const title = document.createElement("h1");
-                    title.innerHTML = section.title; // innerHTML kullanıldı ki badge render olsun
+                    title.innerHTML = section.title; 
                     title.style.marginBottom = "2rem";
                     container.appendChild(title);
 
