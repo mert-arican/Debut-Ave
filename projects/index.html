@@ -541,6 +541,29 @@
                         container.style.marginBlockEnd = "5rem"
                     }
 
+                    // --- SARI UYARI BANDI KODU BURAYA EKLENİYOR ---
+                    if (section.isDeprecated && index === 0) {
+                        const banner = document.createElement("div");
+                        banner.textContent = "⚠️ DEPRECATED - REPLACED BY EGGSCRIPT";
+                        banner.style.backgroundColor = "#f39c12"; // Dikkat çeken sarı/turuncu renk
+                        banner.style.color = "#111"; // Koyu metin
+                        banner.style.padding = "0.4rem";
+                        banner.style.textAlign = "center";
+                        banner.style.fontFamily = "'Roboto Mono', monospace";
+                        banner.style.fontWeight = "bold";
+                        banner.style.fontSize = "0.85rem";
+                        
+                        // İçerideki paddingi ezip tam köşeden köşeye yapışmasını sağlıyoruz
+                        banner.style.marginLeft = "-2rem";
+                        banner.style.marginRight = "-2rem";
+                        banner.style.marginTop = "-1rem";
+                        banner.style.marginBottom = "1.5rem";
+                        banner.style.borderTopLeftRadius = "1rem";
+                        banner.style.borderTopRightRadius = "1rem";
+                        
+                        container.appendChild(banner);
+                    }
+
                     if (section.insights != null) {
                         const tit = document.createElement("h1");
                         tit.textContent = "Developer's Insight";
