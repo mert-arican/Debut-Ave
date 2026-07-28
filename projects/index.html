@@ -9,26 +9,18 @@
     <style>
         :root {
             --bg-color: #0e0e0e;
-            /* Black almost */
             --container-bg-color: #202020;
-            /* Dark Gray */
             --font-color: #e0e0e0;
-            /* Light Gray */
             --font-color2: #f6f6f6;
-            /* Light Gray */
             --button-bg-color: #f1c40f;
-            /* Gold */
             --button-hover-bg-color: #f39c12;
-            /* Darker Gold on hover */
             --button-text-color: #ffffff;
-            /* White text */
             --clear-color: hsla(0, 0%, 100%, 0.0);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            /* Black background */
             margin: 0;
             padding: 0;
             display: flex;
@@ -36,21 +28,17 @@
             align-items: center;
             padding: 0rem;
             color: var(--font-color);
-            /* Light gray text */
         }
 
         .rounded-container {
             max-width: 38rem;
             margin: 0 auto;
             background-color: var(--container-bg-color);
-            /* Dark gray background */
-            /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
-            /*margin-bottom: 4rem;*/
             margin-bottom: 8px;
             margin-left: 1rem;
             margin-right: 1rem;
             padding: 1rem 2rem;
-            /* Uniform padding inside the container */
+            transition: all 0.3s ease;
         }
 
         .rounded-container h1 {
@@ -60,7 +48,6 @@
             margin: 0;
             padding-top: 0.4rem;
             color: var(--font-color);
-            /* Light gray text */
         }
 
         .rounded-container h2 {
@@ -68,10 +55,7 @@
             font-weight: 400;
             font-size: 14px;
             color: var(--font-color);
-            /* Light gray text */
-            /*margin-bottom: 1.5rem;*/
             line-height: 1.4;
-            /*white-space: pre-line; /* Preserves line breaks */
         }
 
         .rounded-container p {
@@ -82,7 +66,6 @@
             text-align: justify;
             hyphens: auto;
             color: var(--font-color2);
-            /* Light gray text */
         }
 
         .rounded-container img {
@@ -93,48 +76,39 @@
             margin: 0.5rem 0;
             font-weight: 600;
             font-size: 14px;
-            /*color: antiquewhite;*/
+        }
+
+        .deprecated-badge {
+            background-color: #8b0000;
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .deprecated-container {
+            background-color: #1a1a1a !important;
+            opacity: 0.65;
+            filter: grayscale(60%);
         }
 
         @media (max-width: 420px) and (orientation:portrait) {
-            .rounded-container {
-                padding: 0.5rem 1rem;
-            }
-
-            .rounded-container h2 {
-                display: none;
-                /* Hides the paragraph inside .rounded-container on small screens */
-            }
-
-            .rounded-container p {
-                font-size: 1.0rem;
-            }
-
-            .rounded-container h1 {
-                font-size: 1.5rem;
-            }
-
+            .rounded-container { padding: 0.5rem 1rem; }
+            .rounded-container h2 { display: none; }
+            .rounded-container p { font-size: 1.0rem; }
+            .rounded-container h1 { font-size: 1.5rem; }
         }
 
         @media (max-height: 420px) and (orientation:landscape) {
-            .rounded-container {
-                padding: 0.5rem 1rem;
-            }
-
-            .rounded-container h2 {
-                display: none;
-                /* Hides the paragraph inside .rounded-container on small screens */
-            }
-
-            .rounded-container p {
-                font-size: 1.0rem;
-                text-align: left;
-            }
-
-            .rounded-container h1 {
-                font-size: 1.5rem;
-            }
-
+            .rounded-container { padding: 0.5rem 1rem; }
+            .rounded-container h2 { display: none; }
+            .rounded-container p { font-size: 1.0rem; text-align: left; }
+            .rounded-container h1 { font-size: 1.5rem; }
         }
 
         .read-more-button {
@@ -143,37 +117,25 @@
             text-align: center;
             display: inline-block;
             margin-bottom: 1rem;
-            background-color: #0D47A1; /* var(--clear-color); */
-            /* Gold */
+            background-color: #0D47A1;
             color: var(--button-text-color);
-            /* White text */
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             border: 0px solid #e0e0e0;
-            /* Light gray border */
             border-radius: 42px;
             cursor: pointer;
-            /*text-transform: uppercase;*/
             font-weight: 200;
             transition: background-color 0.3s;
         }
 
         .read-more-button:hover {
             background-color: var(--button-hover-bg-color);
-            /* Darker Gold on hover */
         }
 
         @media (pointer: coarse) {
-            .read-more-button:hover {
-                background-color: transparent;
-                /* Reset hover */
-            }
-
-            .read-more-button:active {
-                background-color: #0056b3;
-                /* Different effect when tapped on touch devices */
-            }
+            .read-more-button:hover { background-color: transparent; }
+            .read-more-button:active { background-color: #0056b3; }
         }
 
         #intro-container {
@@ -195,7 +157,6 @@
             hyphens: auto;
             color: var(--font-color2);
             margin-block-end: 3rem;
-            /* Light gray text */
         }
 
         #intro-container h1 {
@@ -205,7 +166,6 @@
             padding-right: 1rem;
             max-width: 42rem;
         }
-
     </style>
 </head>
 
@@ -220,12 +180,10 @@
                 <a href="/projects/">Projects</a>
                 <a href="/about/">About</a>
             </div>
-            <!-- Menu Button (only visible on small screens) -->
             <button class="menu-btn" onclick="toggleMenu()">Menu</button>
         </div>
     </nav>
 
-    <!-- Vertical menu options below the navbar (only visible on small screens) -->
     <div class="menu-options">
         <a href="/essays/">Essays</a>
         <a href="/projects/">Projects</a>
@@ -234,30 +192,26 @@
     
     <div id="intro-container">
         <h1>Projects</h1>
-        <p>Here you can see some examples of the software I've been creating for the last seven years.<br>
-            I divide them into two different categories:
-            <br>
-            <br> - Projects as Products
-            <br> - Not So Toy Projects
-        <br>
-        <br>
-        The first category includes apps created as products.
-        I don't share the source code for these apps, but you can download and use them through the App Store or TestFlight.
-        Since these are the most recent apps I've developed, they best showcase my software development skills.
-            <br>
-            <br>
-            The second category contains apps and C projects that I built primarily for educational purposes.
-            The source code for these can be found in the detailed description.
-            While they may not be the best pieces of software I've written,
-            they are included to demonstrate my progress as a software engineer over time.
+        <p>Here you can see some examples of the software I've been creating for the last eight years.<br>
+            I divide them into three different categories:
+            <br><br> - Projects as Products
+            <br> - Systems & Architecture
+            <br> - Algorithmic Explorations & Archives
+        <br><br>
+        The first category includes apps created as commercial products, strictly optimized for Apple and Web platforms.
+        I don't share the source code for these apps, but you can download and use them through the App Store or the web.
+        These represent the pinnacle of my current software engineering capabilities.
+            <br><br>
+            The other categories contain backend systems, legacy architectures, and C projects that I built for educational or foundational purposes.
+            While they may belong to the past, they demonstrate my progression and robust understanding of computer science fundamentals.
             </p>
     </div>
     <div id="content-container"></div>
 
     <script>
         function isString(value) {
-  return typeof value === 'string';
-}
+            return typeof value === 'string';
+        }
         function toggleMenu() {
             const menuOptions = document.querySelector('.menu-options');
             menuOptions.classList.toggle('show');
@@ -266,77 +220,24 @@
         "Projects as Products",
         [
             {
-                language: "Swift - SwiftUI - MVVM - iOS - macOS - Git",
-                title: "Felix Project",
+                language: "Swift 6 - TypeScript - React - Zustand - WebAssembly",
+                title: "EggScript: Learn Programming",
                 textLines: "",
-                images: ["assets/felix-project.png"],
+                ref: "https://eggscript.com",
+                images: ["assets/eggscript-mockup1.png", "assets/eggscript-mockup2.png"], // Görsel isimlerini kendi assetlerine göre düzenlersin
                 paragraphs: [
-                    "Felix project consists of two programs I've written using Swift and SwiftUI. First one is the main app that I built for iOS & iPadOS, called Programming with Felix. Second one is a macOS tool that I built for myself to create the content of the main app, called FelixData. Both projects share a common JSON file, which is manipulated by FelixData, and forms the content of Programming with Felix."
+                    "An interactive, educational programming platform optimized heavily for iPad and Mac. Features a completely offline client-side execution environment, utilizing an embedded Pyodide runtime.",
+                    "Initially engineered as a native iOS app leveraging Swift Strict Concurrency, the engine was later architecturally mapped to a web stack and seamlessly packaged into an App Store bundle."
                 ]
             },
             {
                 insights: 
                 [`
-                This is the most complex software I've ever written.
-                The app features various views that can display syntax-highlighted code snippets, 
-                compile-time errors and warnings, the flow of control through the code, and the code's output.
-                All these views can be nested within multiple-choice questions, either in the question itself or the options.
-                Additionally, it includes a practice element where users fill in the blanks with the correct options to create valid code.`,
-
-                `There is also another app called FelixData, designed to create and manage the content for the Felix app.
-                 FelixData generates and modifies a JSON file, which serves as the source of content for the Felix app.`
-                ]
-            },
-            {
-                title: "Programming with Felix",
-                textLines: "",
-                ref: "https://sites.google.com/view/programmingwithfelix/home",
-                images: ["assets/felix-1.png", "assets/felix-2.png"],
-                paragraphs: [
-                    "Educational app that provides an interactive user experience to help people learn the fundamentals of programming."
-                ]
-            },
-            {
-                title: "Felix Data",
-                textLines: "",
-                images: ["assets/felix-data.png"],
-                paragraphs: [
-                    "Utility program that I built for myself to create and manipulate the content of Programming with Felix app."
-                ]
-            }
-        ],
-            [
-{
-    language: "Go - Docker - SQL - Git",
-    title: "Expense Management System Backend",
-    textLines: "",
-    ref: "https://sites.google.com/view/ems-backend",
-    images: ["assets/docker+go.png"],
-    paragraphs: [
-        "A RESTful backend system for managing organizational expenses, user roles, and budget tracking. Built in Go and containerized with Docker for seamless deployment across environments.",
-    ]
-}
-],
-                            [
-            {
-                language: "Swift - SwiftUI - SwiftData - MapKit - MV - iOS - Git",
-                title: "Vectura: Public Transit Guide",
-                textLines: "",
-                ref: "https://sites.google.com/view/vectura/home",
-                images: ["assets/trip-planner-1.png", "assets/trip-planner-2.png"],
-                paragraphs: [
-                    "A public transportation route finder app that provides routes using Singapore's GTFS data."
-                ]
-            },
-            {
-                insights: 
-                [`
-                Vectura was a term-long project where I challenged myself to build an efficient public transport planner using GTFS data.
-                Initially, I expected a pathfinding approach similar to A*, but soon realized I need a lot more than that, and found about the RAPTOR algorithm which handles transit-specific constraints.
-                The project makes extensive use of MapKit for visualization and leverages SwiftData to manage 8,000 stops and 200,000 departure events efficiently.
-                While the algorithm works well, there’s an ongoing refinement challenge: if it finds the optimal route, it’s too slow; if not, it lacks guaranteed optimality in all cases.
+                This platform is the realization of a vision I had years ago. What I initially tried to achieve with my early projects—a flawless, interactive demo engine—is finally possible today thanks to the rapid evolution of LLMs, Apple's Swift 6 structured concurrency, and the architectural experience I've gained over the years.
+                `,
                 `
-            ]
+                The engine handles text manipulation deterministically via abstract document indices rather than fragile spatial coordinates, perfectly synchronizing TTS audio with visual demo actions. It is the ultimate expression of my long-standing passion for CS101 and systems engineering.
+                `]
             }
         ],
         [
@@ -366,65 +267,61 @@
             ]
             }
         ],
-        "Not So Toy Projects",
+        "Systems & Architecture",
         [
             {
-                language: "Swift - UIKit - MVC - iOS",
-                title: "Rengarenk: Colorful Words",
+                language: "Swift - SwiftUI - SwiftData - MapKit - MV - iOS - Git",
+                title: "Vectura: Public Transit Guide",
                 textLines: "",
-                ref: "https://sites.google.com/view/rengarenk-colorful-words/home",
-                images: ["assets/renga1.png", "assets/renga2.png"],
+                ref: "https://sites.google.com/view/vectura/home",
+                images: ["assets/trip-planner-1.png", "assets/trip-planner-2.png"],
                 paragraphs: [
-                    "Word game that initially built as a final project for CS193P, later got published to the App Store."
+                    "A public transportation route finder app that provides routes using Singapore's GTFS data."
                 ]
             },
             {
                 insights: 
                 [`
-                This was the first app I published to the App Store and the first app I earned money from.
-                After following the CS193P (2017) course, I decided to create this word game as my final project.
-                While I wouldn’t claim it’s the best-designed word game out there, it proves that I can develop
-                complex apps using UIKit and Swift.`,
+                Vectura was a term-long project where I challenged myself to build an efficient public transport planner using GTFS data.
+                Initially, I expected a pathfinding approach similar to A*, but soon realized I need a lot more than that, and found about the RAPTOR algorithm which handles transit-specific constraints.
+                The project makes extensive use of MapKit for visualization and leverages SwiftData to manage 8,000 stops and 200,000 departure events efficiently.
+                While the algorithm works well, there’s an ongoing refinement challenge: if it finds the optimal route, it’s too slow; if not, it lacks guaranteed optimality in all cases.
+                `
+            ]
+            }
+        ],
+        [
+            {
+                language: "Go - Docker - SQL - Git",
+                title: "Expense Management System Backend",
+                textLines: "",
+                ref: "https://sites.google.com/view/ems-backend",
+                images: ["assets/docker+go.png"],
+                paragraphs: [
+                    "A RESTful backend system for managing organizational expenses, user roles, and budget tracking. Built in Go and containerized with Docker for seamless deployment across environments.",
                 ]
             }
         ],
-                    [
-            {
-                language: "Swift - SpriteKit - iOS",
-                title: "Pt2",
-                textLines: "",
-                ref: "https://sites.google.com/view/pt2-spritekit-experiment/home",
-                images: ["assets/pt1.png"],
-                paragraphs: [
-                    "Simple platformer game that I built using SpriteKit."
-            ]
-            },
-            {
-                insights: [
-                    "I tried to implement a simple 2D platformer game. It didn’t go as planned (thanks to SpriteKit and its quirks), but I learned a lot about principles of game engines."
-                ]
-            }
-          ],
+        "Algorithmic Explorations & Archives",
         [
             {
-                language: "Swift - UIKit - MVC - iOS",
-                title: "Blocks World",
+                language: "Swift - SwiftUI - macOS (Deprecated)",
+                title: 'Felix Project <span class="deprecated-badge">Superseded</span>',
                 textLines: "",
-                ref: "https://sites.google.com/view/blocks-world/home",
-                images: ["assets/blocks1.png", "assets/blocks2.png"],
+                images: ["assets/felix-project.png"],
                 paragraphs: [
-                    "Simple AI program that uses goal trees to answer questions about its own behavior."
-                ]
+                    "Felix project consisted of two programs I've written using Swift and SwiftUI. The first was an iOS learning app, and the second was a macOS tool to create the content for it."
+                ],
+                isDeprecated: true
             },
             {
-                insights: [
-                    `
-                    I first saw a demonstration of this app during the MIT 6.034 AI course and thoroughly enjoyed it.
-                    Professor Winston explained the algorithm on the blackboard, and I wondered if I could implement it myself based on what I saw.
-                    I successfully implemented it and named it Blocks World.
-                    Only a month ago, I stumbled upon the Wikipedia page and discovered that its actual name is indeed Blocks World.
-                    `
-                ]
+                insights: 
+                [`
+                This was my initial, ambitious attempt at building a comprehensive CS101 learning platform. While the app functioned well and featured syntax-highlighted code execution, the tightly coupled architecture made it difficult to scale and integrate new programming languages.
+                `,
+                `
+                Recognizing the architectural bottlenecks, I chose to deprecate Felix completely. I threw out the old codebase and rewrote the core execution engine from scratch with a highly extensible, polymorphic design—which ultimately became EggScript.
+                `]
             }
         ],
         [
@@ -453,6 +350,28 @@
                     dynamic programming techniques. Looking back, this was a breakthrough moment for me:
                     it was the first time I was able to read, understand, and implement an algorithm
                     described in an academic paper.`
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - UIKit - MVC - iOS",
+                title: "Blocks World",
+                textLines: "",
+                ref: "https://sites.google.com/view/blocks-world/home",
+                images: ["assets/blocks1.png", "assets/blocks2.png"],
+                paragraphs: [
+                    "Simple AI program that uses goal trees to answer questions about its own behavior."
+                ]
+            },
+            {
+                insights: [
+                    `
+                    I first saw a demonstration of this app during the MIT 6.034 AI course and thoroughly enjoyed it.
+                    Professor Winston explained the algorithm on the blackboard, and I wondered if I could implement it myself based on what I saw.
+                    I successfully implemented it and named it Blocks World.
+                    Only a month ago, I stumbled upon the Wikipedia page and discovered that its actual name is indeed Blocks World.
+                    `
                 ]
             }
         ],
@@ -496,6 +415,44 @@
                     The app uses the A* search algorithm to move the balls on the board, which I learned in the MIT 6.034 course,
                     specifically tailored for this game.
                     `
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - UIKit - MVC - iOS",
+                title: "Rengarenk: Colorful Words",
+                textLines: "",
+                ref: "https://sites.google.com/view/rengarenk-colorful-words/home",
+                images: ["assets/renga1.png", "assets/renga2.png"],
+                paragraphs: [
+                    "Word game that initially built as a final project for CS193P, later got published to the App Store."
+                ]
+            },
+            {
+                insights: 
+                [`
+                This was the first app I published to the App Store and the first app I earned money from.
+                After following the CS193P (2017) course, I decided to create this word game as my final project.
+                While I wouldn’t claim it’s the best-designed word game out there, it proves that I can develop
+                complex apps using UIKit and Swift.`,
+                ]
+            }
+        ],
+        [
+            {
+                language: "Swift - SpriteKit - iOS",
+                title: "Pt2",
+                textLines: "",
+                ref: "https://sites.google.com/view/pt2-spritekit-experiment/home",
+                images: ["assets/pt1.png"],
+                paragraphs: [
+                    "Simple platformer game that I built using SpriteKit."
+            ]
+            },
+            {
+                insights: [
+                    "I tried to implement a simple 2D platformer game. It didn’t go as planned (thanks to SpriteKit and its quirks), but I learned a lot about principles of game engines."
                 ]
             }
         ],
@@ -544,17 +501,10 @@
                 ]
             }
         ]
-        
-
-
-        
-
-        
         ];
 
         const contentContainer = document.getElementById("content-container");
         metasections.forEach((sections) => {
-            console.log(sections, isString(sections))
             if (isString(sections)) {
                 const tit = document.createElement("h1");
                 tit.textContent = sections;
@@ -564,127 +514,117 @@
                 contentContainer.appendChild(tit);
             }
             else {
-        sections.forEach((section, index) => {
-            const container = document.createElement("div");
-            container.classList.add("rounded-container");
-            if (index == 0) {
-                container.style.borderTopLeftRadius = "1rem";
-                container.style.borderTopRightRadius = "1rem";
-                container.style.backgroundColor = "#2E8B57";
-            }
-            if (index == sections.length - 1) {
-                container.style.borderBottomLeftRadius = "1rem";
-                container.style.borderBottomRightRadius = "1rem";
-                container.style.marginBlockEnd = "5rem"
-            }
+                sections.forEach((section, index) => {
+                    const container = document.createElement("div");
+                    container.classList.add("rounded-container");
+                    
+                    if (section.isDeprecated) {
+                        container.classList.add("deprecated-container");
+                    }
 
-            if (section.insights != null) {
-                const tit = document.createElement("h1");
-                tit.textContent = "Developer's Insight";
-                container.appendChild(tit);
-                contentContainer.appendChild(container);
+                    if (index == 0) {
+                        container.style.borderTopLeftRadius = "1rem";
+                        container.style.borderTopRightRadius = "1rem";
+                        if (!section.isDeprecated) {
+                            container.style.backgroundColor = "#2E8B57";
+                        }
+                    }
+                    if (index == sections.length - 1) {
+                        container.style.borderBottomLeftRadius = "1rem";
+                        container.style.borderBottomRightRadius = "1rem";
+                        container.style.marginBlockEnd = "5rem"
+                    }
 
-                section.insights.forEach(par => {
-                    console.log(par);
-                    const paragraphElement = document.createElement("p");
-                    paragraphElement.textContent = par;
-                    container.appendChild(paragraphElement);
+                    if (section.insights != null) {
+                        const tit = document.createElement("h1");
+                        tit.textContent = "Developer's Insight";
+                        container.appendChild(tit);
+
+                        section.insights.forEach(par => {
+                            const paragraphElement = document.createElement("p");
+                            paragraphElement.textContent = par;
+                            container.appendChild(paragraphElement);
+                        });
+                        
+                        if (!section.isDeprecated) {
+                            container.style.backgroundColor = "#4A1228";
+                        }
+                        contentContainer.appendChild(container);
+                        return;
+                    }
+
+                    if (section.language != null) {
+                        const textElement = document.createElement("h3");
+                        textElement.textContent = section.language;
+                        container.appendChild(textElement);
+                    }
+
+                    const title = document.createElement("h1");
+                    title.innerHTML = section.title; // innerHTML kullanıldı ki badge render olsun
+                    title.style.marginBottom = "2rem";
+                    container.appendChild(title);
+
+                    const co = document.createElement("div");
+                    co.style.maxWidth = "40rem";
+                    co.style.display = "flex";
+                    co.style.gap = "10px"; 
+                    co.style.marginBottom = "1rem";   
+
+                    if (section.images) {
+                        section.images.forEach((img, index) => {
+                            const image = document.createElement("img");
+                            image.src = img;
+                            image.style.maxWidth = "100%";
+                            image.style.minWidth = "42%";
+                            image.style.maxHeight = "420px"
+                            image.style.marginBottom = "1rem";
+                            co.appendChild(image);
+                        });
+                    }
+
+                    const textLines = document.createElement("h2");
+                    if (section.textLines) {
+                        textLines.innerHTML = section.textLines.split("\n").join("<br>");
+                        container.appendChild(textLines);
+                    }
+
+                    container.appendChild(co);
+                    
+                    if (section.paragraphs) {
+                        section.paragraphs.forEach(paragraph => {
+                            const paragraphElement = document.createElement("p");
+                            paragraphElement.textContent = paragraph;
+                            container.appendChild(paragraphElement);
+                        });
+                    }
+
+                    if (section.magic != null) {
+                        const anchorElement = document.createElement("a");
+                        anchorElement.style.display = "inline-block";
+                        anchorElement.target = "_blank";
+                        anchorElement.href = "https://youtu.be/V_7mmwpgJHU?list=PLE18841CABEA24090&t=2885";
+                        anchorElement.textContent = section.magic;
+                        anchorElement.style.marginBottom = "1rem";
+                        container.appendChild(anchorElement);
+                    }
+
+                    const nextIsInsight = (index < (sections.length - 1)) && sections[index+1].insights != null;
+                    if ((index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) && section.ref != null) {
+                        const button = document.createElement("button");
+                        button.classList.add("read-more-button");
+                        button.textContent = "Learn more";
+                        button.addEventListener("click", function() {
+                            window.open(section.ref, "_blank");
+                        });
+                        container.appendChild(button);
+                    }
+                    contentContainer.appendChild(container);
                 });
-                container.style.backgroundColor = "#4A1228";
-                contentContainer.appendChild(container);
-                return;
             }
-/*
-            if (section.specs != null) {
-                const tit = document.createElement("h3");
-                tit.textContent = "Technical Specs";
-                container.appendChild(tit);
-                contentContainer.appendChild(container);
-                const paragraphElement = document.createElement("p");
-                section.specs.forEach((spec, index) => {
-                    paragraphElement.innerHTML += "<b>" + spec[0] + "</b>" + ": " + spec[1];
-                    paragraphElement.innerHTML += "</br>";
-                })
-                // container.style.backgroundColor = "#2E8B57";
-                container.appendChild(paragraphElement);
-                contentContainer.appendChild(container);
-                return;
-            }
-        */
-            // Add title
-
-            if (section.language != null) {
-                // Create the text element for "Swift"
-                const textElement = document.createElement("h3");
-                textElement.textContent = section.language;
-                container.appendChild(textElement);
-            }
-
-            const title = document.createElement("h1");
-            title.textContent = section.title;
-            title.style.marginBottom = "2rem";
-            container.appendChild(title);
-
-            // <img src="image-path.jpg" alt="Description of the image" style="max-width:100%; height:auto;">
-            const co = document.createElement("div");
-            co.style.maxWidth = "40rem";
-            co.style.display = "flex"; // Use flexbox
-            co.style.gap = "10px"; // Add some spacing between images 
-            co.style.marginBottom = "1rem";   
-
-            section.images.forEach((img, index) => {
-                const image = document.createElement("img");
-                console.log(img);
-                image.src = img;
-                image.style.maxWidth = "100%";
-                image.style.minWidth = "42%";
-                image.style.maxHeight = "420px"
-                image.style.marginBottom = "1rem";
-                co.appendChild(image);
-            })
-
-            // Add text lines
-            const textLines = document.createElement("h2");
-            textLines.innerHTML = section.textLines.split("\n").join("<br>");
-            container.appendChild(textLines);
-
-            container.appendChild(co);
-            section.paragraphs.forEach(paragraph => {
-                const paragraphElement = document.createElement("p");
-                paragraphElement.textContent = paragraph;
-                container.appendChild(paragraphElement);
-            });
-
-            if (section.magic != null) {
-                const anchorElement = document.createElement("a");
-                anchorElement.style.display = "inline-block";
-                anchorElement.target = "_blank";
-                anchorElement.href = "https://youtu.be/V_7mmwpgJHU?list=PLE18841CABEA24090&t=2885"; // The link destination
-                anchorElement.textContent = "The way in which you would construct a recursive process is by wishful thinking. You have to believe.";
-                anchorElement.style.marginBottom = "1rem";
-                container.appendChild(anchorElement);
-            }
-
-            // Add "Read More" button
-            const nextIsInsight = (index < (sections.length - 1)) && sections[index+1].insights != null
-            if ((index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) && section.ref != null) {
-                const button = document.createElement("button");
-                button.classList.add("read-more-button");
-                button.textContent = "Learn more";
-                button.addEventListener("click", function() {
-                    // window.location.href = section.ref;  // This opens the tabula-rasa.html page
-                    window.open(section.ref, "_blank");
-                });
-                container.appendChild(button);
-            }
-            // Append section container to the main content container
-            contentContainer.appendChild(container);
         });
-    }
-    });
     </script>
 </body>
 <footer>
-    <p>&#169; Mert Arıcan 2024</p>
+    <p>&#169; Mert Arıcan 2026</p>
 </footer>
 </html>
