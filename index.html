@@ -120,6 +120,19 @@
             .read-more-button:active { background-color: #0056b3; }
         }
 
+        /* --- Çift Buton İçin Gerekli CSS --- */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .button-group .read-more-button {
+            margin-bottom: 0;
+            flex: 1;
+        }
+
         #intro-container {
             width: 100%;
             margin-bottom: 2rem;
@@ -147,6 +160,20 @@
             padding-left: 1rem;
             padding-right: 1rem;
             max-width: 42rem;
+        }
+
+        /* --- Sosyal Medya Linkleri CSS --- */
+        .social-links a {
+            color: var(--button-bg-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            margin-right: 0.5rem;
+        }
+
+        .social-links a:hover {
+            color: var(--button-hover-bg-color);
+            text-decoration: underline;
         }
 
     </style>
@@ -183,6 +210,11 @@
             I've shared a series of essays where I explore these topics using the Swift language.
             <br><br>
             You can also check out my personal projects, and feel free to reach out to share your ideas and comments.  
+            <br><br>
+            <span class="social-links">
+                <a href="https://linkedin.com/in/mert-arican" target="_blank">LinkedIn</a> • 
+                <a href="https://github.com/mert-arican" target="_blank">GitHub</a>
+            </span>
         </p>
     </div>
     <div id="content-container"></div>
@@ -290,7 +322,7 @@
                     }
 
                     const title = document.createElement("h1");
-                    title.textContent = section.title;
+                    title.innerHTML = section.title; // title html formatında gelebildiği için innerHTML kullanıldı.
                     
                     title.style.marginBottom = "2rem";
 
@@ -317,17 +349,21 @@
                         });
 
                         const textLines = document.createElement("h2");
-                        textLines.innerHTML = section.textLines.split("\n").join("<br>");
-                        container.appendChild(textLines);
+                        if (section.textLines) {
+                            textLines.innerHTML = section.textLines.split("\n").join("<br>");
+                            container.appendChild(textLines);
+                        }
 
                         container.appendChild(co);
                     }
                     
-                    section.paragraphs.forEach(paragraph => {
-                        const paragraphElement = document.createElement("p");
-                        paragraphElement.textContent = paragraph;
-                        container.appendChild(paragraphElement);
-                    });
+                    if (section.paragraphs) {
+                        section.paragraphs.forEach(paragraph => {
+                            const paragraphElement = document.createElement("p");
+                            paragraphElement.textContent = paragraph;
+                            container.appendChild(paragraphElement);
+                        });
+                    }
 
                     if (section.magic != null) {
                         const anchorElement = document.createElement("a");
@@ -340,21 +376,41 @@
                     }
 
                     const nextIsInsight = (index < (sections.length - 1)) && sections[index+1].insights != null;
-                    if ((index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) && section.ref != null) {
-                        const button = document.createElement("button");
-                        button.classList.add("read-more-button");
+                    if (index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) {
                         
-                        button.textContent = (section.title === "Swiftly Through The Programing Languages") ? "Start with Tabula Rasa" : "Learn more";
-                        
-                        button.addEventListener("click", function() {
-                            if (section.title === "Swiftly Through The Programing Languages") {
-                                window.location.href = section.ref;  
-                            }
-                            else {
-                                window.open(section.ref, "_blank");
-                            }
-                        });
-                        container.appendChild(button);
+                        // --- YENİ EKLENEN LINKS KONTROLÜ ---
+                        if (section.links != null) {
+                            const btnGroup = document.createElement("div");
+                            btnGroup.classList.add("button-group");
+                            
+                            section.links.forEach(linkObj => {
+                                const button = document.createElement("button");
+                                button.classList.add("read-more-button");
+                                button.textContent = linkObj.name;
+                                button.addEventListener("click", function() {
+                                    window.open(linkObj.url, "_blank");
+                                });
+                                btnGroup.appendChild(button);
+                            });
+                            container.appendChild(btnGroup);
+                        } 
+                        // --- ESKİ REF KONTROLÜ ---
+                        else if (section.ref != null) {
+                            const button = document.createElement("button");
+                            button.classList.add("read-more-button");
+                            
+                            button.textContent = (section.title === "Swiftly Through The Programing Languages") ? "Start with Tabula Rasa" : "Learn more";
+                            
+                            button.addEventListener("click", function() {
+                                if (section.title === "Swiftly Through The Programing Languages") {
+                                    window.location.href = section.ref;  
+                                }
+                                else {
+                                    window.open(section.ref, "_blank");
+                                }
+                            });
+                            container.appendChild(button);
+                        }
                     }
                     contentContainer.appendChild(container);
                 });
