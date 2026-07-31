@@ -196,14 +196,17 @@
             menuOptions.classList.toggle('show');
         }
         const metasections = [
-        "Featured Project",
+            "Featured Project",
         [
             {
-                language: "TypeScript - React - Zustand - WebAssembly - Swift 6",
-                title: "EggScript: Learn Programming",
+                language: "Swift 6 - SwiftUI - TypeScript - React - Zustand - WebAssembly",
+                title: "<span id='eggscript-section'>EggScript: Learn Programming</span>",
                 textLines: "",
-                ref: "https://eggscript.com",
-                images: ["/assets/images/eggscript-1.png", "/assets/images/eggscript-2.png"],
+                links: [
+                    { name: "Web App", url: "https://eggscript.com" },
+                    { name: "App Store", url: "https://eggscript.com/app-store-preview" } // Insert actual App Store link here
+                ],
+                images: ["assets/eggscript-1.png", "assets/eggscript-2.png"],
                 paragraphs: [
                     "An educational programming platform available on both the web and the App Store. It features a full client-side Python execution environment via Pyodide.",
                     "The platform was originally engineered as a native iOS app using Swift 6's strict concurrency before being ported to a TypeScript and React web stack through AI-assisted development. The web version has since become the primary product and is now packaged back for iOS using a WKWebView wrapper."
@@ -212,11 +215,14 @@
             {
                 insights: 
                 [`
-                This platform is the realization of a vision I had years ago. What I initially set out to achieve with my early project, Felix, was a flawless, interactive demo engine. Today, I finally made that vision a reality thanks to Swift 6's structured concurrency, the experience I've gained over the past few years, and the productivity gains made possible by modern AI tools. It is the ultimate expression of my long-standing passion for CS101.`,
-                
-                `Instead of just showing static code blocks, I wanted the engine to feel like a real instructor typing live. I built a core orchestrator that handles everything—from organically typing and modifying code in real-time, to perfectly syncing the text-to-speech audio timestamps with visual actions.`,
-                
-                `To make it truly interactive, the engine uses pause gates: it physically halts both the audio stream and the visual execution loop until the user completes the requested interaction. I am currently experimenting with AI agents to automatically generate and compile these complex course artifacts.`
+                This platform is the realization of a vision I had years ago. What I initially set out to achieve with my early project, Felix, was a flawless, interactive demo engine. Today, I finally made that vision a reality thanks to Swift 6's structured concurrency, the experience I've gained over the past few years, and the productivity gains made possible by modern AI tools. It is the ultimate expression of my long-standing passion for CS101.
+                `,
+                `
+                Instead of just showing static code blocks, I wanted the engine to feel like a real instructor typing live. I built a core orchestrator that handles everything—from organically typing and modifying code in real-time, to perfectly syncing the text-to-speech audio timestamps with visual actions. 
+                `,
+                `
+                To make it truly interactive, the engine uses pause gates: it physically halts both the audio stream and the visual execution loop until the user completes the requested interaction. I am currently experimenting with AI agents to automatically generate and compile these complex course artifacts.
+                `
                 ]
             }
         ],
