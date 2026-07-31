@@ -125,6 +125,18 @@
             .read-more-button:active { background-color: #0056b3; }
         }
 
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .button-group .read-more-button {
+            margin-bottom: 0;
+            flex: 1;
+        }
+
         #intro-container {
             width: 100%;
             margin-bottom: 2rem;
@@ -207,10 +219,13 @@
         "Projects as Products",
         [
             {
-                language: "Swift 6 - SwiftUI | TypeScript - React - Zustand - WebAssembly",
+                language: "Swift 6 - SwiftUI - TypeScript - React - Zustand - WebAssembly",
                 title: "<span id='eggscript-section'>EggScript: Learn Programming</span>",
                 textLines: "",
-                ref: "https://eggscript.com",
+                links: [
+                    { name: "Web App", url: "https://eggscript.com" },
+                    { name: "App Store", url: "https://eggscript.com/app-store-preview" } // Insert actual App Store link here
+                ],
                 images: ["assets/eggscript-1.png", "assets/eggscript-2.png"],
                 paragraphs: [
                     "An educational programming platform available on both the web and the App Store. It features a full client-side Python execution environment via Pyodide.",
@@ -638,14 +653,34 @@
                     }
 
                     const nextIsInsight = (index < (sections.length - 1)) && sections[index+1].insights != null;
-                    if ((index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) && section.ref != null) {
-                        const button = document.createElement("button");
-                        button.classList.add("read-more-button");
-                        button.textContent = "Learn more";
-                        button.addEventListener("click", function() {
-                            window.open(section.ref, "_blank");
-                        });
-                        container.appendChild(button);
+                    if (index != 0 || (index == 0 && (sections.length == 1 || nextIsInsight))) {
+                        
+                        // Yeni Eklenen "links" Mantığı
+                        if (section.links != null) {
+                            const btnGroup = document.createElement("div");
+                            btnGroup.classList.add("button-group");
+                            
+                            section.links.forEach(linkObj => {
+                                const button = document.createElement("button");
+                                button.classList.add("read-more-button");
+                                button.textContent = linkObj.name;
+                                button.addEventListener("click", function() {
+                                    window.open(linkObj.url, "_blank");
+                                });
+                                btnGroup.appendChild(button);
+                            });
+                            container.appendChild(btnGroup);
+                        } 
+                        // Eski "ref" Mantığı
+                        else if (section.ref != null) {
+                            const button = document.createElement("button");
+                            button.classList.add("read-more-button");
+                            button.textContent = "Learn more";
+                            button.addEventListener("click", function() {
+                                window.open(section.ref, "_blank");
+                            });
+                            container.appendChild(button);
+                        }
                     }
                     contentContainer.appendChild(container);
                 });
